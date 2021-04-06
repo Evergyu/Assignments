@@ -74,7 +74,7 @@ int main(void)
 QueueType *createQueue()
 {
 	QueueType *cQ;
-	cQ = (QueueType *)malloc(sizeof(QueueType));	//동적할당으로 크기가 4QueueType인 큐 생성
+	cQ = (QueueType *)malloc(sizeof(QueueType));	//동적할당으로 크기가 QueueType인 큐 생성
 	cQ->front = 0;
 	cQ->rear = 0;
 	return cQ;
