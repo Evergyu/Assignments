@@ -215,7 +215,20 @@ int deleteNode(headNode* h, int key) {
  * list의 마지막 노드 삭제
  */
 int deleteLast(headNode* h) {
-
+	listNode *p=h->first;
+	listNode *prev_p;
+	
+	if(h->first==NULL){	//헤드노드가 마지막노드면
+		return 0;		//종료합니다.
+	}
+	else {						//헤드노드가 마지막노드가 아니면
+		while(p->link!=NULL){	//마지막 노드를 찾습니다 
+			prev_p->link=p;		//prev_p가 p를 가리킵니다
+			p=p->link;			//p를 다음노드로 옮깁니다
+		}		
+		free(p);				//마지막노드인 p를 지웁니다
+		prev_p->link=NULL;		//마지막 노드의 직전노드인 prev_p를 마지막노드로 만듭니다.
+	}
 	return 0;
 }
 
