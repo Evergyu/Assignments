@@ -154,14 +154,6 @@ int insertFirst(headNode* h, int key) {
 
 /* 리스트를 검색하여, 입력받은 key보다 큰값이 나오는 노드 바로 앞에 삽입 */
 int insertNode(headNode* h, int key) {
-	listNode *new =(listNode*)malloc(sizeof(listNode));	//새로 삽입할 노드 생성
-	new->key=key; //data넣기
-	while(h){	
-		h->first=new;	//헤드가 temp를 가리키게 함
-		new->link=NULL; //temp가 마지막일테니까 NULL을 넣어줌
-	}
-	h->first=new;	//헤더가 가리키는게 temp이게 바꿈
-	new->link=NULL; //temp가 마지막일테니까 NULL을 넣어줌
 	
 	return 0;
 }
@@ -193,12 +185,14 @@ int insertLast(headNode* h, int key) {
  * list의 첫번째 노드 삭제
  */
 int deleteFirst(headNode* h) {
-	listNode *prev_p,*p=h->first;	//왼쪽부터 헤드,노드라 할 때 헤드가 가리키는 노드를 p도 가리키게 하고
-	prev_p->link=h->first;					//prev_p가 현재 헤드가 있는곳을 가리키게 한다. @@이따확인
-	h->first=p->link;				//헤드가 노드가 가리키고있던 곳을 가리키게 하고
-									//노드가 헤드가 되도록 옮겨줍니다.						
-	free(prev_p);					//헤드였던 첫번째를 메모리해제해주면 지워진다.
-
+	listNode *p=h->first;
+	if(h->first==NULL){	//헤드가 마지막이면
+		return 0;		//함수를 끝냅니다
+	}
+	else{						//헤드가 마지막이 아니면
+		 h->first = p->link;	//헤드를 그 뒤에 있는 노드와 이어줍니다
+     	free(p);				//첫번째노드인 p를 해제합니다
+	}
 	return 0;
 }
 
