@@ -202,13 +202,34 @@ int deleteFirst(headNode* h) {
  */
 int deleteNode(headNode* h, int key) {
 	listNode *p=h->first;
-	listNode *prev_p,*next_p;
-	while(p->key!=key){	}
-	next_p->link=p->link;
-		prev_p=p;
-		free(prev_p);
-	return 0;
+	listNode *delete_p;
 
+	if(h->first==NULL){	//헤드가 비었다면
+		return 0;		//종료합니다
+	}
+	else if (p->key==key){	//헤드가 찾는것이라면
+		deleteFirst(h);
+		return 0;		//deleteFirst함수를 호출해 첫 노드를 지웁니다
+	}
+	while(p->link!=NULL){		
+		if(p->link->key==key){
+			delete_p=p->link;
+			if(delete_p->link!=NULL){//마지막항이 아니면 prev_p항을 delete_p가 가리키는것과 이어줍니다.
+				p->link=delete_p->link;
+				free(delete_p);
+			}
+			else{
+				p->link=NULL;
+				free(delete_p);	
+			}			//마지막항이면 prev_p를 마지막항으로 해줍니다.
+			return 0;		
+		}	
+		p=p->link;	//p 노드를 한칸씩 이동시킵니다
+	}
+	if(p->link==NULL){
+		printf("숫자가 없어요!\n");
+		return 0;
+	}
 }
 
 /**
