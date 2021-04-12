@@ -166,6 +166,7 @@ int insertNode(headNode* h, int key) {
 	if(h->first->key > new->key){
 		insertFirst(h,key);
 	}
+	else{
 	while(p->link!=NULL){
 
 		if(new->key < p->link->key){
@@ -181,6 +182,7 @@ int insertNode(headNode* h, int key) {
 		return 0;
 	}
 	return 0;
+	}
 }
 
 /**
@@ -210,7 +212,7 @@ int insertLast(headNode* h, int key) {
  * list의 첫번째 노드 삭제
  */
 int deleteFirst(headNode* h) {
-	listNode *p=h->first;
+	listNode *p=h->first;//헤더의 포인터를 대신해 쓸 p
 	if(h->first==NULL){	//헤드가 마지막이면
 		return 0;		//함수를 끝냅니다
 	}
@@ -226,8 +228,8 @@ int deleteFirst(headNode* h) {
  * list에서 key에 대한 노드 삭제
  */
 int deleteNode(headNode* h, int key) {
-	listNode *p=h->first;
-	listNode *delete_p;
+	listNode *p=h->first;//헤더의 포인터를 대신해 쓸 p
+	listNode *delete_p;//지울 노드를 가리키는 delete_p
 
 	if(h->first==NULL){	//헤드가 비었다면
 		return 0;		//종료합니다
@@ -238,7 +240,7 @@ int deleteNode(headNode* h, int key) {
 	}
 	while(p->link!=NULL){		
 		if(p->link->key==key){
-			delete_p=p->link;
+			delete_p=p->link; //p가 delete를 가리키게 합니다
 			if(delete_p->link!=NULL){//마지막 노드가 아니면 p노드를 delete_p가 가리키는것과 이어줍니다.
 				p->link=delete_p->link;	//p를 delete_p가 가리키는것으로 이어줍니다
 				free(delete_p);
@@ -261,20 +263,23 @@ int deleteNode(headNode* h, int key) {
  * list의 마지막 노드 삭제
  */
 int deleteLast(headNode* h) {
-	listNode *p=h->first;
-	listNode *prev_p;
+	listNode *p=h->first;//헤더의 포인터를 대신해 쓸 p
+	listNode *prev_p,*delete_p;	//지울 노드와 마지막 노드 직전 노드를 가리키는 것으로 사용할 prev_p
 	
 	if(h->first==NULL){	//헤드노드가 마지막노드면
+		printf("비어있습니다\n");
 		return 0;		//종료합니다.
 	}
 	else {						//헤드노드가 마지막노드가 아니면
-		while(p->link!=NULL){	//마지막 노드를 찾습니다 
-			prev_p->link=p;		//prev_p가 p를 가리킵니다
-			p=p->link;			//p를 다음노드로 옮깁니다
-		}		
-		free(p);				//마지막노드인 p를 지웁니다
-		prev_p->link=NULL;		//마지막 노드의 직전노드인 prev_p를 마지막노드로 만듭니다.
-	}
+		prev_p=p;				//prev_p->p
+		delete_p=p->link;		//delete_p는 p가 가리키는곳을 가리킵니다
+		while(delete_p->link!=NULL){	//마지막 노드를 찾습니다 
+			prev_p=delete_p;			//delete_p자리에 prev_p를 넣습니다
+			delete_p=delete_p->link;			//delete_p를 다음노드로 옮깁니다
+			}
+			free(delete_p);						//delete_p가 NULL이 될때 반복문이 깨지고 free 해줍니다
+			prev_p->link=NULL;					//prev_p가 마지막 노드가 되도록 합니다
+		}	
 	return 0;
 }
 
@@ -283,7 +288,23 @@ int deleteLast(headNode* h) {
  * 리스트의 링크를 역순으로 재 배치
  */
 int invertList(headNode* h) {
-	
+	listNode *p=h->first;		//헤더의 포인터를 대신해 쓸 p
+	listNode *prev_p,*next_p;	//임시로 값을 저장할 포인터들
+	prev_p=NULL;
+	while(p->link!=NULL){	//p->link가 마지막항이기 전까지 반복문을 돌립니다
+		next_p=prev_p;	//next_p가 prev_p를 가리키게 합니다
+		prev_p=p;		//prev_p가 p를 가리키게 합니다
+		p=p->link;		//p를 한칸 옮겨줍니다
+		prev_p->link=next_p;	//prev_p가 역순이되면 마지막 노드가 가리켜야 할 값을 가진 next_p를 가리키도록 합니다
+		h->first=prev_p;	//제일 첫 노드를 prev_p와 이어줍니다.
+	}
+	if(p->link==NULL){	//p->link가 NULL이면 반복문에서 팅겨 나오므로 if문으로 한번 더돌려줍니다.
+		next_p=prev_p;
+		prev_p=p;
+		p=p->link;
+		prev_p->link=next_p;
+		h->first=prev_p;
+	}
 	return 0;
 }
 
