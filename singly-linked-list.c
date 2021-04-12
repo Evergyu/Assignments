@@ -154,7 +154,32 @@ int insertFirst(headNode* h, int key) {
 
 /* 리스트를 검색하여, 입력받은 key보다 큰값이 나오는 노드 바로 앞에 삽입 */
 int insertNode(headNode* h, int key) {
-	
+	listNode *new=(listNode*)malloc(sizeof(listNode));	//새 노드 생성
+	listNode *p=h->first;
+
+	new->key=key;	//새 노드에 값 넣기
+	if(h->first==NULL){	//첫노드가 마지막 노드이면
+		new->link = h->first;	//new가 첫노드가 가리키는 것을 가리키게하고
+		h->first = new;			//h가 new를 가리키게 합니다.
+		return 0;	
+	}
+	if(h->first->key > new->key){
+		insertFirst(h,key);
+	}
+	while(p->link!=NULL){
+
+		if(new->key < p->link->key){
+			new->link=p->link;					//문제있다
+			p->link=new;
+			return 0;
+		}
+		p=p->link;
+	}
+	if(p->link==NULL){
+		p->link=new;
+		new->link=NULL;
+		return 0;
+	}
 	return 0;
 }
 
@@ -214,20 +239,20 @@ int deleteNode(headNode* h, int key) {
 	while(p->link!=NULL){		
 		if(p->link->key==key){
 			delete_p=p->link;
-			if(delete_p->link!=NULL){//마지막항이 아니면 prev_p항을 delete_p가 가리키는것과 이어줍니다.
-				p->link=delete_p->link;
+			if(delete_p->link!=NULL){//마지막 노드가 아니면 p노드를 delete_p가 가리키는것과 이어줍니다.
+				p->link=delete_p->link;	//p를 delete_p가 가리키는것으로 이어줍니다
 				free(delete_p);
 			}
 			else{
 				p->link=NULL;
 				free(delete_p);	
-			}			//마지막항이면 prev_p를 마지막항으로 해줍니다.
+			}			//마지막 노드면 p를 마지막항으로 해줍니다.
 			return 0;		
 		}	
 		p=p->link;	//p 노드를 한칸씩 이동시킵니다
 	}
-	if(p->link==NULL){
-		printf("숫자가 없어요!\n");
+	if(p->link==NULL){	//위의 모든과정에 걸리지 않고 NULL까지 왔다면 숫자는 없으므로
+		printf("숫자가 없어요!\n");	//숫자가없다는 안내문구 출력합니다.
 		return 0;
 	}
 }
@@ -258,7 +283,7 @@ int deleteLast(headNode* h) {
  * 리스트의 링크를 역순으로 재 배치
  */
 int invertList(headNode* h) {
-
+	
 	return 0;
 }
 
