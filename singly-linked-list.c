@@ -264,11 +264,15 @@ int deleteNode(headNode* h, int key) {
  */
 int deleteLast(headNode* h) {
 	listNode *p=h->first;//헤더의 포인터를 대신해 쓸 p
-	listNode *prev_p,*delete_p;	//지울 노드와 마지막 노드 직전 노드를 가리키는 것으로 사용할 prev_p
-	
+	listNode *first_p,*prev_p,*delete_p;	//지울 노드와 마지막 노드 직전 노드를 가리키는 것으로 사용할 prev_p
+
 	if(h->first==NULL){	//헤드노드가 마지막노드면
 		printf("비어있습니다\n");
 		return 0;		//종료합니다.
+	}
+	
+	if(h->first->link==NULL){	//노드가 하나 있다면
+		deleteFirst(h);			//첫노드=마지막노드 이므로 deleteFirst(h) 함수로 삭제해줍니다
 	}
 	else {						//헤드노드가 마지막노드가 아니면
 		prev_p=p;				//prev_p->p
