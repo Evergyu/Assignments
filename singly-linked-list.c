@@ -158,27 +158,27 @@ int insertNode(headNode* h, int key) {
 	listNode *p=h->first;
 
 	new->key=key;	//새 노드에 값 넣기
-	if(h->first==NULL){	//첫노드가 마지막 노드이면
+	if(h->first==NULL){	//첫노드가 마지막 노드이면(비어있으면)
 		new->link = h->first;	//new가 첫노드가 가리키는 것을 가리키게하고
 		h->first = new;			//h가 new를 가리키게 합니다.
 		return 0;	
 	}
-	if(h->first->key > new->key){
-		insertFirst(h,key);
+	if(h->first->key > new->key){	//첫노드가 입력받은 값보다 크면
+		insertFirst(h,key);			//첫노드에 new를 넣습니다
 	}
 	else{
 	while(p->link!=NULL){
 
-		if(new->key < p->link->key){
-			new->link=p->link;					//문제있다
-			p->link=new;
+		if(new->key < p->link->key){	//중간에 입력값보다 큰 노드를 만났을 때
+			new->link=p->link;			//new가 p가 가리키던 것을 가리키게 하고					
+			p->link=new;				//p는 new를 가리키게 합니다
 			return 0;
 		}
-		p=p->link;
+		p=p->link;						//p를 한칸씩 옮겨가며 반복
 	}
-	if(p->link==NULL){
-		p->link=new;
-		new->link=NULL;
+	if(p->link==NULL){					//p가 마지막노드를 만났을 때
+		p->link=new;					//p가 마지막 노드를 가리키게 하고
+		new->link=NULL;					//new->link에 Null값을 넣습니다
 		return 0;
 	}
 	return 0;
