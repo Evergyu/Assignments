@@ -272,7 +272,33 @@ int invertList(headNode* h) {
 
 /* 리스트를 검색하여, 입력받은 key보다 큰값이 나오는 노드 바로 앞에 삽입 */
 int insertNode(headNode* h, int key) {
-
+	listNode *new=(listNode*)malloc(sizeof(listNode));	//새로운노드
+	listNode *p=h->first;
+	new->key=key;	//new의 key에 키값을 넣습니다.
+	if(h->first==NULL){		//노드가 없을때
+		insertFirst(h,key);	//insertFirst함수를 호출해 첫 노드에 새 노드를 넣습니다.
+		free(new);			//쓰이지 않는 new 노드를 해제합니다.
+	}
+	else if(new->key < p->key){	//첫노드가 입력받은 값보다 클때
+		insertFirst(h,key);				//insertFirst함수를 호출해 첫 노드에 새 노드를 넣습니다.
+		free(new);						//쓰이지 않는 new 노드를 해제합니다.
+	}
+	else{
+		while(p->rlink!=NULL){
+			if(new->key < p->rlink->key){	//새로들어온 값보다 큰 값을 가진 노드를 만나면
+				new->rlink=p->rlink;	//p가 가리키는 곳을 new가 가리키게 하고
+				p->rlink=new;			//p가 new를 향하게 합니다.
+				new->llink=p;
+				new->rlink->llink=new;
+				return 0;
+			}
+			p=p->rlink;				//p를 한칸씩 옮겨줍니다.
+		}
+		if(p->rlink==NULL){			//p가 마지막 노드일 때
+			insertLast(h,key);		//insertLast함수를 호출해 마지막노드에 새 노드를 넣습니다.
+			free(new);				//쓰이지않는 new노드를 해제합니다.
+		}
+	}
 	return 0;
 }
 
@@ -281,8 +307,43 @@ int insertNode(headNode* h, int key) {
  * list에서 key에 대한 노드 삭제
  */
 int deleteNode(headNode* h, int key) {
-
-	return 1;
+	listNode *p=h->first;
+	listNode *prev,*delete;
+	if(h->first==NULL){	//노드가 비었다면
+		printf("리스트가 비었습니다.\n");	//안내문구출력
+		return 1;
+	}
+	else if(p->key==key){	//제일 첫 노드가 찾는 노드라면
+		deleteFirst(h);		//deleteFirst함수를 호출해 지워줍니다.
+		return 1;
+	}
+	else if(p->rlink->key==key&&p->rlink->rlink==NULL){//두번째 노드가 찾는 노드고 노드의 수가
+		deleteLast(h);								   //2라면 deleteLast 함수를 호출해 지웁니다.
+		return 1;
+		
+	}		
+	else {
+		prev=p;
+		delete=p->rlink;	
+		while(p->rlink!=NULL){	
+			if(delete->key==key){	//p가 마지막노드가 아니고 p의 다음노드가 key를 갖고있다면
+				prev->rlink=delete->rlink;	//prev를 delete가 가리키는 곳을 가리키게 하고
+				delete->rlink->llink=prev;	//delete 다음노드의 llink를 prev에 연결
+				free(delete);				//후 delete를 free합니다.
+				return 1;
+			}
+		p=p->rlink;	//while문 한루프당 p한칸씩 이동
+		}
+		if(p->key==key){	//마지막노드가 key를 가지고 있을 때 
+			deleteLast(h);	//deleteLast함수를 호출해 지워줍니다.
+			return 1;	
+		}
+		if (p->rlink==NULL){
+		printf("찾는 key를가진 노드는 없어요\n");	//모든 if문에도 걸리지 않는다면 숫자가 없으므로
+		return 1;						//안내문 출력
+		}
+	}
 }
+
 
 
