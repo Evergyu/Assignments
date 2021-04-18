@@ -183,7 +183,7 @@ int insertLast(headNode* h, int key) {
 	if(h->first==NULL){	//연결리스트가 비어있다면
 		h->first=new;	//h가 new를 가리키게 잇고
 		new->rlink=NULL;//new->rlink==NULL 이게 한 다음
-		new->llink=new;	//new의 llink를 자기자신을 가리키게 합니다.
+		new->llink=NULL;//new의 llinks는 NULL을 가리키게 합니다.
 	}
 	else{
 		while(prev->rlink!=NULL){ 	//prev노드 다음노드가 마지막일 때까지
@@ -237,7 +237,7 @@ int insertFirst(headNode* h, int key) {
 
 	new->rlink=h->first;	//new->rlink가 헤드가 가리키던곳을 보게 하고
 	h->first=new;			//헤드가 new를 가리키게 잇습니다.
-	new->llink=new;			//new->llink는 자신을 가리키게 합니다.
+	new->llink=NULL;			//new->llink는 자신을 가리키게 합니다.
 
 	return 0;
 }
@@ -264,7 +264,33 @@ int deleteFirst(headNode* h) {
  * 리스트의 링크를 역순으로 재 배치
  */
 int invertList(headNode* h) {
-
+	listNode *p=h->first;			//헤드가 가리키는곳을 가리키는 p
+	listNode *reverse,*next,*head;	//임시 변수들
+	if(h->first==NULL){				//노드가 없다면
+		printf("리스트가 비어있습니다.\n");	//안내문구 출력 후 종료
+		return 0;
+	}
+	else if(h->first->rlink==NULL){			//노드가 하나면 역순이 의미가 없으므로 종료
+		return 0;
+	}	
+	else{
+		while(p->rlink!=NULL){		//먼저 p를 마지막노드로 이동시킵니다.		
+			p=p->rlink;
+		}	
+		reverse=p;					//마지막노드를 가리키는 두 포인터 reverse,head
+		head=p;
+		while(reverse->llink!=NULL){	//reverse를 왼쪽으로 이동시키며 노드를 바꿉니다,
+			next=reverse->llink;		//reverse->llink 값을 갖고있을 next
+			reverse->llink=reverse->rlink;	//reverse->llink를 rlink로
+			reverse->rlink=next;			//reverse->rlink=reverse->llink로 바꿔줍니다,
+			reverse=reverse->rlink;			//reverse를 한칸 이동시키고
+		}
+			next=reverse->llink;			//reverse가 마지막노드일 때는 실행을 안하기때문에
+			reverse->llink=reverse->rlink;	//한번 더 실행해줍니다.
+			reverse->rlink=next;
+			reverse=reverse->rlink;
+			h->first=head;					//헤드는 마지막노드 head에 붙입니다.
+	}
 	return 0;
 }
 
