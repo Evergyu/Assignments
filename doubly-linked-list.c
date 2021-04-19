@@ -136,6 +136,12 @@ int freeList(headNode* h){
 	listNode* p = h->first;	//h->p를 가리킨다
 
 	listNode* prev = NULL;		//이전노드를 넣을 임시노드
+
+	if(p==NULL){				//헤드밖에 없을 때
+		free(h);				//헤드를 해제하고 종료합니다.
+		return 0;
+	}
+
 	while(p->rlink != NULL) {	//p->rlink가 NULL이 아니라면
 		prev=p;			//prev와 p가 같은 노드를 보게하고
 		p=p->rlink;		//p를 한칸 옮긴 후
