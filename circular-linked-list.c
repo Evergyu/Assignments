@@ -283,8 +283,31 @@ int deleteFirst(listNode* h) {
  */
 int invertList(listNode* h) {
 	listNode *p=h->rlink;
-
-	return 0;
+	listNode *head,*reverse,*next;
+	if (h->rlink==h && h->llink==h){	//노드가 없을 때
+		return 0;						//역순으로 배열할게 없으므로 종료
+	}	
+	else if (h->rlink->rlink==h && h->rlink->llink==h)	//노드가 1개일 때
+		return 0;										//역순으로 배열할게 없으므로 종료
+	else{
+		while(p->rlink!=h){		//먼저 p를 마지막노드로 이동시킵니다.		
+			p=p->rlink;
+		}	
+		reverse=p;					//마지막노드를 가리키는 두 포인터 reverse,head
+		head=p;
+		while(reverse->llink!=h){	//reverse를 왼쪽으로 이동시키며 노드를 바꿉니다,
+			next=reverse->llink;		//reverse->llink 값을 갖고있을 next
+			reverse->llink=reverse->rlink;	//reverse->llink를 rlink로
+			reverse->rlink=next;			//reverse->rlink=reverse->llink로 바꿔줍니다,
+			reverse=reverse->rlink;			//reverse를 한칸 이동시키고
+		}
+			next=reverse->llink;			//reverse가 마지막노드일 때는 실행을 안하기때문에
+			reverse->llink=reverse->rlink;	//한번 더 실행해줍니다.
+			reverse->rlink=next;
+			reverse=reverse->rlink;
+			h->rlink=head;					//헤드는 마지막노드 head에 붙입니다.	
+			return 0;
+	}
 }
 
 
