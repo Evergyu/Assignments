@@ -132,7 +132,7 @@ int freeList(listNode* h){
 		return 0;
 	}
 
-	while(p->rlink != h) {	//p->rlink가 NULL이 아니라면
+	while(p->rlink != h) {	//p->rlink가 h가 아니라면
 		prev=p;			//prev와 p가 같은 노드를 보게하고
 		p=p->rlink;		//p를 한칸 옮긴 후
 		free(prev);		//이전노드 해제
@@ -206,7 +206,6 @@ int insertLast(listNode* h, int key) {
 		h->llink=new;			//헤드노드의 llink가 새로 추가한 마지막 노드new를 보게 합니다.
 	}
 	return 0;
-	return 1;
 }
 
 
@@ -234,10 +233,7 @@ int deleteLast(listNode* h) {
 			free(delete);				//노드를 지웁니다.
 			h->llink=prev;				//헤드의 llink가 prev를 보게 합니다.
 	}
-
 	return 0;
-
-	return 1;
 }
 
 
@@ -253,7 +249,7 @@ int insertFirst(listNode* h, int key) {
 	new->llink=h;			//new->llink==h 가 되게 이어줍니다.
 	new->rlink->llink=new; 	//new의 오른쪽노드의 llink가 new를보게 이어줍니다.
 	
-	return 1;
+	return 0;
 }
 
 /**
@@ -272,9 +268,7 @@ int deleteFirst(listNode* h) {
 		free(delete);			//지울 노드를 free합니다.
 		return 0;
 	}
-
-	return 1;
-
+	return 0;
 }
 
 
@@ -323,10 +317,12 @@ int insertNode(listNode* h, int key) {
 	if(h->rlink==h && h->llink==h){		//노드가 없을때
 		insertFirst(h,key);	//insertFirst함수를 호출해 첫 노드에 새 노드를 넣습니다.
 		free(new);			//쓰이지 않는 new 노드를 해제합니다.
+		return 0;
 	}
-	else if(new->key < p->key){	//노드가 1개있을 때 그 노드의 key가 새로운 노드의 key보다 크면
+	else if(new->key < p->key){	//첫 노드의 key가 새로운 노드의 key보다 크면
 		insertFirst(h,key); //새 노드를첫노드로 추가합니다.
 		free(new);			//쓰지않는 new를 해제해줍니다.
+		return 0;
 	}
 	else{
 		while(p->rlink!=h){					//p->rlink==h 이기 전까지 즉 마지막노드에 도달하기 전까지 돌아가는 반복문
@@ -343,9 +339,9 @@ int insertNode(listNode* h, int key) {
 		if(p->rlink==h){			//p가 마지막 노드일 때
 			insertLast(h,key);		//insertLast함수를 호출해 마지막노드에 새 노드를 넣습니다.
 			free(new);				//쓰이지않는 new노드를 해제합니다.
+			return 0;
 		}
 	}
-	return 0;
 }
 
 
@@ -361,11 +357,11 @@ int deleteNode(listNode* h, int key) {
 	}
 	else if(p->key==key){	//제일 첫 노드가 찾는 노드라면
 		deleteFirst(h);		//deleteFirst함수를 호출해 지워줍니다.
-		return 1;
+		return 0;
 	}
 	else if(p->rlink->key==key&&p->rlink->rlink==h){//두번째 노드가 찾는 노드고 노드의 수가
 		deleteLast(h);								   //2라면 deleteLast 함수를 호출해 지웁니다.
-		return 1;
+		return 0;
 	}		
 	else {
 		prev=p;
@@ -375,13 +371,13 @@ int deleteNode(listNode* h, int key) {
 				prev->rlink=delete->rlink;	//prev를 delete가 가리키는 곳을 가리키게 하고
 				delete->rlink->llink=prev;	//delete 다음노드의 llink를 prev에 연결
 				free(delete);				//후 delete를 free합니다.
-				return 1;
+				return 0;
 			}
 		p=p->rlink;	//while문 한루프당 p한칸씩 이동
 		}
 		if(p->key==key){	//마지막노드가 key를 가지고 있을 때 
 			deleteLast(h);	//deleteLast함수를 호출해 지워줍니다.
-			return 1;	
+			return 0;	
 		}
 		if (p->rlink==h){	//모든 if문에도 걸리지 않는다면 숫자가 없으므로
 		printf("찾는 key를가진 노드는 없어요\n");	//안내문 출력
