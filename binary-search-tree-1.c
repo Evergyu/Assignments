@@ -233,11 +233,36 @@ int deleteLeafNode(Node* head, int key){
 }
 
 Node* searchRecursive(Node* ptr, int key){
-	
+	if(ptr==NULL){		//루트노드가 없으면
+		return NULL;	//NULL을 리턴
+	}
+	if(key==ptr->key){	//key를 가진 노드를 발견하면
+		return ptr;		//그 노드의 주소값 리턴
+	}
+	if(key < ptr->key){							//key가 ptr->key보다 작으면
+		return searchRecursive(ptr->left,key);	//왼쪽으로 이동해서 찾습니다
+	}	
+	else{
+		return searchRecursive(ptr->right,key);	//key가 ptr->key보다 크면
+	}											//오른쪽으로 이동해서 찾습니다.
 }
 
 Node* searchIterative(Node* head, int key){
-	
+	Node*p=head->left;		//head를 받기 때문에 루트노드를 가리키는 p를 만듭니다
+	while(p!=NULL){			//p가 NULL이면 반복문을 끝냅니다
+		if (key==p->key){	//key를 찾으면
+			return p;		//p를 리턴
+		}
+		if(key < p->key){	//key가 p->key보다 작으면
+			p=p->left;		//p를 왼쪽으로 이동
+		}
+		else if(key > p->key){	//key가 p->key보다 크면
+			p=p->right;			//p를 오른쪽으로 이동
+		}	
+	}
+	if (p==NULL){		//p가 NULL이면 key를가진 노드를 찾지 못하고 반복문을 빠져나온 것이므로
+		return NULL;	//리턴 NULL
+	}
 }
 
 
