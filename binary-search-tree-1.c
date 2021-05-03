@@ -268,7 +268,18 @@ Node* searchIterative(Node* head, int key){
 
 int freeBST(Node* head)
 {	
-	
+	if(head==NULL){	//노드가 비어있다면 종료합니다.
+		return 0;
+	}
+	if(head != NULL){					//노드가 있다면
+		freeBST(head->left);	//왼쪽 노드로 먼저 방문하면서 해제한 후
+		if(head->right==head){
+			free(head);			//헤드노드의 right는 자기자신을 가리키므로 무한반복하기 때문에 그 부분을 넘깁니다.
+			return 0;
+		} 
+		freeBST(head->right);  //그 후 오른쪽으로 가면서 해제합니다.
+		free(head);			//노드를 해제하는 부분
+	}
 }
 
 
