@@ -238,7 +238,86 @@ int insert(Node* head, int key)
 
 int deleteNode(Node* head, int key)
 {
-	
+	Node*p=head->left,*prev=head,*right_root,*right_parent;		//head를 받기 때문에 루트노드를 가리키는 p와 parent노드를 가리키는 prev
+	int parent_case=0;
+	while(p!=NULL){			//p가 NULL이면 반복문을 끝냅니다
+		if (key==p->key){	//key를 찾으면
+			break;		//p를 리턴
+		}
+		prev=p;				//key의 값에따라 옮기기 전의 p를 prev에 넣습니다.
+		if(key < p->key){	//key가 p->key보다 작으면
+			parent_case=0;
+			p=p->left;		//p를 왼쪽으로 이동
+		}
+		else if(key > p->key){	//key가 p->key보다 크면
+			parent_case=1;
+			p=p->right;			//p를 오른쪽으로 이동
+		}	
+	}
+	if (p==NULL){								//p가 NULL일 때
+		printf("일치하는 노드가 없습니다\n");	//일치하는 노드를 찾지 못했으므로 출력
+		return 0;
+	}
+
+	//case1 지울 노드가 리프노드인경우
+	if (p->right==NULL && p->left==NULL){	
+		if(parent_case==0){		//prev->left==p 일 때
+			prev->left=NULL;	//prev->left=NULL
+			free(p);
+		}
+		if(parent_case==1){		//prev->right==p 일 때			
+			prev->right=NULL;	//prev->left=NULL
+			free(p);
+		}	
+		return 0;
+	}
+
+	//case2 지울 노드의 자식노드가 1개 있을경우									
+	if(p->left==NULL && p->right!=NULL){	//지울 노드의 오른쪽이 비어있지 않은경우
+		if(parent_case==0){					//p==prev->left일때
+			prev->left=p->right;			//prev->left=p->left
+			free(p);						//노드지우기
+		}
+		else if(parent_case==1){			//p==prev->right일때
+			prev->right=p->right;			//prev->right=p->left
+			free(p);						//노드지우기
+		}
+		return 0;
+	}
+	if(p->left!=NULL && p->right==NULL){	//지울 노드의 왼쪽이 비어있지 않은 경우
+		if(parent_case==0){					//p==prev->left일때
+			prev->left=p->left;				//prev->left=p->left
+			free(p);						//노드지우기
+		}
+		else if(parent_case==1){			//p==prev->right일때
+			prev->right=p->left;			//prev->right=p->left
+			free(p);						//노드지우기
+		}
+		return 0;
+	}
+
+	//case3 지울 노드의 자식노두가 두개인경우
+	if(p->left!=NULL && p->right!=NULL){					
+		right_root=p->right;				//오른쪽 트리에서 작은 수를 찾기위한 임시노드 설정
+		while(right_root->left=NULL){		//right_root->left가 NULL일때까지
+			right_parent=right_root;		//right_parent에 right_root의 주소를 넣고
+			right_root=right_root->left;	//right_root를 왼쪽으로 옮깁니다.
+		}
+		right_parent->left=NULL;			//가장 작은 노드를 위로 꺼내기때문에 부모->left에 NULL을 넣고
+		if(parent_case==0){					//p==prev->left일때
+			prev->left=right_root;			//prev->left=right_root;
+			right_root->left=p->left;		//right_root에는 p에 이어졌던것들을 잇습니다.
+			right_root->right=p->right;
+			free(p);						//마지막으로 p를 free
+		}
+		else if(parent_case==1){			//p==prev->right일때
+			prev->right=right_root;			//prev->left=right_root;
+			right_root->left=p->left;		//right_root에는 p에 이어졌던것들을 잇습니다.
+			right_root->right=p->right;
+			free(p);						//마지막으로 p를 free
+		}
+		return 0;	
+	}
 }
 
 
