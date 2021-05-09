@@ -299,19 +299,25 @@ int deleteNode(Node* head, int key)
 	//case3 지울 노드의 자식노두가 두개인경우
 	if(p->left!=NULL && p->right!=NULL){					
 		right_root=p->right;				//오른쪽 트리에서 작은 수를 찾기위한 임시노드 설정
-		while(right_root->left=NULL){		//right_root->left가 NULL일때까지
+		if(right_root->left==NULL){
+			if(parent_case==0) prev->left=right_root;			//p==prev->left일때		prev->left=right_root
+			else if(parent_case==1)	prev->right=right_root;		//p==prev->right일때	prev->right=right_root
+			right_root->left=p->left;							//right_root->left에 p->left의 주소를 넣고
+			free(p);	//free
+			return 0;
+		}
+		while(right_root->left==NULL){		//right_root->left가 NULL일때까지
 			right_parent=right_root;		//right_parent에 right_root의 주소를 넣고
 			right_root=right_root->left;	//right_root를 왼쪽으로 옮깁니다.
 		}
-		right_parent->left=NULL;			//가장 작은 노드를 위로 꺼내기때문에 부모->left에 NULL을 넣고
 		if(parent_case==0){					//p==prev->left일때
 			prev->left=right_root;			//prev->left=right_root;
 			right_root->left=p->left;		//right_root에는 p에 이어졌던것들을 잇습니다.
 			right_root->right=p->right;
 			free(p);						//마지막으로 p를 free
 		}
-		else if(parent_case==1){			//p==prev->right일때
-			prev->right=right_root;			//prev->left=right_root;
+		else if(parent_case==1){			//p==prev->right일때		
+			prev->right=right_root;			//prev->right=right_root;
 			right_root->left=p->left;		//right_root에는 p에 이어졌던것들을 잇습니다.
 			right_root->right=p->right;
 			free(p);						//마지막으로 p를 free
