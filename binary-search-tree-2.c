@@ -177,17 +177,17 @@ void levelOrder(Node* ptr)
 	enQueue(ptr);						//루트노드를 큐에 넣고
 
 	while(1){
-		ptr=deQueue();						//ptr에 front가 가리키는 노드를 넣고
-		if (ptr!=NULL){						//ptr이 NULL이 될 때까지
-			printf(" [%d] ",ptr->key);		//ptr->key를 출력하고
-			if(ptr->left!=NULL){			//왼쪽 자식노드가 비어있지 않다면
-				enQueue(ptr->left);			//큐에 왼쪽노드를 추가
+		ptr=deQueue();					//ptr에 front가 가리키는 노드를 넣고
+		if (ptr!=NULL){					//ptr이 NULL이 될 때까지
+			printf(" [%d] ",ptr->key);	//ptr->key를 출력하고
+			if(ptr->left!=NULL){		//왼쪽 자식노드가 비어있지 않다면
+				enQueue(ptr->left);		//큐에 왼쪽노드를 추가
 			}
-			if(ptr->right!=NULL){			//오른쪽 자식노드가 비어있지 않다면
-				enQueue(ptr->right);		//큐에 오른쪽 노드를 추가
+			if(ptr->right!=NULL){		//오른쪽 자식노드가 비어있지 않다면
+				enQueue(ptr->right);	//큐에 오른쪽 노드를 추가
 			}
 		}
-		else break;							//ptr이 NULL값을 받으면 종료
+		else break;						//ptr이 NULL값을 받으면 종료
 	}
 }
 
@@ -240,14 +240,14 @@ int deleteNode(Node* head, int key)
 {
 	Node*p=head->left,*prev=head,*right_root,*right_parent;		//head를 받기 때문에 루트노드를 가리키는 p와 parent노드를 가리키는 prev
 	int parent_case=0;
-	while(p!=NULL){			//p가 NULL이면 반복문을 끝냅니다
-		if (key==p->key){	//key를 찾으면
-			break;		//p를 리턴
+	while(p!=NULL){				//p가 NULL이면 반복문을 끝냅니다
+		if (key==p->key){		//key를 찾으면
+			break;				//p를 리턴
 		}
-		prev=p;				//key의 값에따라 옮기기 전의 p를 prev에 넣습니다.
-		if(key < p->key){	//key가 p->key보다 작으면
+		prev=p;					//key의 값에따라 옮기기 전의 p를 prev에 넣습니다.
+		if(key < p->key){		//key가 p->key보다 작으면
 			parent_case=0;
-			p=p->left;		//p를 왼쪽으로 이동
+			p=p->left;			//p를 왼쪽으로 이동
 		}
 		else if(key > p->key){	//key가 p->key보다 크면
 			parent_case=1;
@@ -355,7 +355,7 @@ Node* pop()
 		return NULL;					//NULL값 반환
 	}
 	else {
-		return stack[top--];				//비어있지않다면 stack[top]을 리턴해주고 top을 -- 해줍니다.
+		return stack[top--];			//비어있지않다면 stack[top]을 리턴해주고 top을 -- 해줍니다.
 	}
 }
 
@@ -365,15 +365,15 @@ void push(Node* aNode)
 		printf("Stack is FULL!\n");	//스택이 가득찼다는 문구 출력	
 		printf("Stack's size is %d\n",MAX_STACK_SIZE);
 	}
-	else {					//가득차지 않았다면
-		stack[++top]=aNode;	//++top을 해주고 stack[top]자리에 노드의 주소 추가
+	else {						//가득차지 않았다면
+		stack[++top]=aNode;		//++top을 해주고 stack[top]자리에 노드의 주소 추가
 	}
 }
 
 Node* deQueue()
 {
-	if(front==rear){				//front==rear 이면
-		return NULL;				//NULL 리턴
+	if(front==rear){			//front==rear 이면
+		return NULL;			//NULL 리턴
 	}
 	else{						//큐가 비어있지않다면 front를 한칸 늘려서
 		return queue[++front];	//++front를 해주고 queue[front]를 리턴
@@ -382,8 +382,8 @@ Node* deQueue()
 
 void enQueue(Node* aNode)
 {
-	if  (rear==MAX_QUEUE_SIZE-1){		//rear가 배열의 끝에 있다면
-		printf("Queue is FUll\n");		//큐가 가득찼다고 출력
+	if  (rear==MAX_QUEUE_SIZE-1){	//rear가 배열의 끝에 있다면
+		printf("Queue is FUll\n");	//큐가 가득찼다고 출력
 		printf("Queue's size is %d\n",MAX_QUEUE_SIZE);
 	}
 	else{						//가득차지 않았다면
