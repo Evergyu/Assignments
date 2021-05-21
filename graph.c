@@ -23,7 +23,16 @@ void insertVertex(int key);
 void insertEdge(int from,int to);
 int FindMinimumVertex();
 void DFS(int v);
-void BFS();
+
+/* for queue */
+#define MAX_QUEUE_SIZE 10
+int queue[MAX_QUEUE_SIZE];
+int front = -1;
+int rear = -1;
+int deQueue();
+void enQueue(int key);
+
+void BFS(int v);
 void printGraph();
 
 int main(){
@@ -68,7 +77,8 @@ int main(){
                 DFS(key);
     			break;
     		case 'b': case 'B':
-                //BFS();
+                key=FindMinimumVertex();
+                BFS(2);
     			break;
     		case 'p': case 'P':
                 printGraph();   //리스트의 형태로 그래프를 출력합니다.
@@ -84,6 +94,7 @@ int main(){
 
 void initialize(){
     int i=0;
+    front=rear=-1;
     for(i;i<MAX_VERTEX_SIZE;i++){   //Vertex의 사이즈만큼 반복문을 돌려
         ADJList[i].index=-1;
         freeList(&ADJList[i]);      //Vertex에 이어진 Edge들을 free해줍니다.
@@ -124,17 +135,16 @@ void insertEdge(int from, int to){
     new->next=NULL;
     new->index=to;
     if(ADJList[from].index==-1){
-        printf("%d의 Index를 가진 Vertex가 없습니다. 먼저 생성하세요.\n",from);
+        printf("%d의 Index를 가진 Vertex가 없습니다.\n",from);
+        insertVertex(from);
+        printf("다시 Edge를 시도하세요");
         free(new);
         return;
     }
     if(ADJList[to].index==-1){
-        printf("%d의 Index를 가진 Vertex가 없습니다. 먼저 생성하세요.\n",to);
-        free(new);
-        return;
-    }
-    if(from==to){
-        printf("같은 노드는 이을 수 없습니다.\n");
+        printf("%d의 Index를 가진 Vertex가 없습니다.\n",to);
+        insertVertex(to);
+        printf("다시 Edge를 시도하세요");
         free(new);
         return;
     }
@@ -158,6 +168,7 @@ void insertEdge(int from, int to){
                 new->next=temp->next;
             }
         }
+        printf("Edge has created.");
     }  
 }
 int FindMinimumVertex(){
@@ -173,9 +184,33 @@ int FindMinimumVertex(){
     return -1;
 }
 void DFS(int v){
-   
+   ver* w;
+   visited[v]=1;
+   printf(" <%d> ", v);
+   for(w=&ADJList[v];w;w=w->next){
+       if(!visited[w->index]){
+           DFS(w->index);
+       }
+   }
 }
-//BFS
+void BFS(int v){
+    ver* w;
+    printf(" <%d> ",v);
+    enQueue(v);
+    rear++;
+    visited[v]=v;
+    
+    while(front<rear){
+        v=deQueue();
+        for(w=&ADJList[v];w;w=w->next){
+            if(!visited[w->index]){
+                printf(" <%d> ",w->index);
+                enQueue(w->index);
+                visited[w->index]=1;
+            }
+        }
+    }
+}
 void printGraph(){
     int i;
     ver* ptr;
@@ -190,4 +225,24 @@ void printGraph(){
             printf("\n");
         }
     }
+}
+int deQueue()
+{
+	if(front==rear){			//front==rear 이면
+		return 0;			//NULL 리턴
+	}
+	else{						//큐가 비어있지않다면 front를 한칸 늘려서
+		return queue[++front];	//++front를 해주고 queue[front]를 리턴
+	}
+}
+
+void enQueue(int key)
+{
+	if  (rear==MAX_QUEUE_SIZE-1){	//rear가 배열의 끝에 있다면
+		printf("Queue is FUll\n");	//큐가 가득찼다고 출력
+		printf("Queue's size is %d\n",MAX_QUEUE_SIZE);
+	}
+	else{						//가득차지 않았다면
+		queue[++rear]=key;	//++rear를 해주고 queue[rear]자리에 key값 추가
+	}
 }
