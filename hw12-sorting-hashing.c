@@ -355,6 +355,7 @@ int hashing(int *a, int **ht)
 	int key = -1;
 	int hashcode = -1;
 	int index = -1;
+	//MAX_ARRAY_SIZE만큼 반복
 	for (int i = 0; i < MAX_ARRAY_SIZE; i++)
 	{
 		key = a[i];
@@ -362,6 +363,7 @@ int hashing(int *a, int **ht)
 		/*
 		printf("key = %d, hashcode = %d, hashtable[%d]=%d\n", key, hashcode, hashcode, hashtable[hashcode]);
 		*/
+		//-1인 hashtable이 남지 않도록 모두 key값으로 초기화
 		if (hashtable[hashcode] == -1)
 		{
 			hashtable[hashcode] = key;
@@ -383,6 +385,7 @@ int hashing(int *a, int **ht)
 	return 0;
 }
 
+//없는 값을 찾을 때 무한반복
 int search(int *ht, int key)
 {
 	int index = hashCode(key);
