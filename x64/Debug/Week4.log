@@ -1,0 +1,6 @@
+﻿  GL_Modeling.cpp
+GL_Modeling.obj : error LNK2019: __imp_glutMainLoopmain 함수에서 참조되는 확인할 수 없는 외부 기호
+GL_Modeling.obj : error LNK2019: __imp_glutDisplayFuncmain 함수에서 참조되는 확인할 수 없는 외부 기호
+GL_Modeling.obj : error LNK2019: __imp___glutCreateWindowWithExitglutCreateWindow_ATEXIT_HACK 함수에서 참조되는 확인할 수 없는 외부 기호
+D:\Windows Kits\10\lib\10.0.19041.0\um\x64\freeglut.lib : warning LNK4272: 'x86' 라이브러리 컴퓨터 종류가 'x64' 대상 컴퓨터 종류와 충돌합니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week4\x64\Debug\Week4.exe : fatal error LNK1120: 3개의 확인할 수 없는 외부 참조입니다.
