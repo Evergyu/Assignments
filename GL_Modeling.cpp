@@ -147,6 +147,7 @@ void MyDisplay() {
 	//물체 9 GL_QUADS
 	/*점을 네개씩 골라 사각형을 그립니다.*/
 	glBegin(GL_QUADS);
+	glColor3f(0.0, 1, 0.0);
 	//사각형1
 	glVertex2f(40 + 330, 200);
 	glVertex2f(50 + 330, 270);
