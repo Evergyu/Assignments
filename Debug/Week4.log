@@ -1,2 +1,4 @@
 ﻿  GLU_Modeling.cpp
-  Week4.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week4\Debug\Week4.exe
+C:\Users\iingy\Desktop\Project\컴그\ComputerGraphics-Week4\GLU_Modeling.cpp(71,50): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\ComputerGraphics-Week4\GLU_Modeling.cpp(75,52): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
+  Week4.vcxproj -> C:\Users\iingy\Desktop\Project\컴그\ComputerGraphics-Week4\Debug\Week4.exe
