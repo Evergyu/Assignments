@@ -33,7 +33,7 @@ void MyCreateList() {
 
     //Sphere
     glNewList(MyList[0], GL_COMPILE);
-    gluQuadricDrawStyle(Sphere, GLU_FILL);
+    gluQuadricDrawStyle(Sphere, GLU_FILL); //면으로 그리기
     gluQuadricNormals(Sphere, GLU_SMOOTH);
     gluQuadricOrientation(Sphere, GLU_OUTSIDE);
     gluQuadricTexture(Sphere, GL_FALSE);
@@ -41,30 +41,31 @@ void MyCreateList() {
     glEndList();
 
     //Cylinder
-    glNewList(MyList[1], GL_LINE);
-    gluQuadricDrawStyle(Sphere, GLU_FILL);
-    gluQuadricNormals(Sphere, GLU_SMOOTH);
-    gluQuadricOrientation(Sphere, GLU_OUTSIDE);
-    gluQuadricTexture(Sphere, GL_FALSE);
-    gluCylinder(Cylinder, 1.0, 0.3, 2.0, 20, 8);
+    glNewList(MyList[1], GL_COMPILE);
+    gluQuadricDrawStyle(Cylinder, GLU_LINE); //선으로 그리기
+    gluQuadricNormals(Cylinder, GLU_SMOOTH);
+    gluQuadricOrientation(Cylinder, GLU_OUTSIDE);
+    gluQuadricTexture(Cylinder, GL_FALSE);
+    gluCylinder(Cylinder, 1, 0.5, 2.0, 20, 1000);
+    
     glEndList();
 
     //Disk
     glNewList(MyList[2], GL_COMPILE);
-    gluQuadricDrawStyle(Sphere, GLU_SILHOUETTE);
-    gluQuadricNormals(Sphere, GLU_SMOOTH);
-    gluQuadricOrientation(Sphere, GLU_OUTSIDE);
-    gluQuadricTexture(Sphere, GL_FALSE);
+    gluQuadricDrawStyle(Disk, GLU_SILHOUETTE); //실루엣
+    gluQuadricNormals(Disk, GLU_SMOOTH);
+    gluQuadricOrientation(Disk, GLU_OUTSIDE);
+    gluQuadricTexture(Disk, GL_FALSE);
     gluDisk(Disk, 0.5, 2.0, 20, 3);
     glEndList();
 
     //Partial Disk
     glNewList(MyList[3], GL_COMPILE);
-    gluQuadricDrawStyle(Sphere, GLU_POINT);
-    gluQuadricNormals(Sphere, GLU_SMOOTH);
-    gluQuadricOrientation(Sphere, GLU_OUTSIDE);
-    gluQuadricTexture(Sphere, GL_FALSE);
-    gluPartialDisk(PartialDisk, 1.5, 3.0, 26, 13, 0, 0);
+    gluQuadricDrawStyle(PartialDisk, GLU_POINT);
+    gluQuadricNormals(PartialDisk, GLU_SMOOTH);
+    gluQuadricOrientation(PartialDisk, GLU_OUTSIDE);
+    gluQuadricTexture(PartialDisk, GL_FALSE);
+    gluPartialDisk(PartialDisk, 1, 2.0, 26, 13, 0, 270);
     glEndList();
 }
 void MyInit(void) {
@@ -89,10 +90,11 @@ void MyInit(void) {
 
 void MyDisplay() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glCallList(MyList[0]);
-    glCallList(MyList[1]);
-    glCallList(MyList[2]);
-    glCallList(MyList[3]);
+    gluLookAt(1, 1, 1, 0, 0, 0.1, 0, 0, 1);
+    //glCallList(MyList[0]); //Sphere
+    //glCallList(MyList[1]); //Cylinder
+    //glCallList(MyList[2]); //Disk
+    glCallList(MyList[3]); //PartialDisk
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
@@ -117,7 +119,7 @@ void Reshape(int w, int h) {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(800, 600);
+    glutInitWindowSize(1000, 900);
     glutInitWindowPosition(0, 0);
     glutCreateWindow("GLU Modeling");
     MyInit();
