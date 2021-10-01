@@ -13,8 +13,8 @@
 //**********************************************************************
 
 #include <GL/glut.h>
-float horizon = 0,vertical = 0; //가로세로 좌표의 증감을 조절할 변수
-float r = 0.5, g = 0.5, b = 0.5; //RGB 초기는 회색이므로 모두 0.5
+GLdouble horizon = 0,vertical = 0; //가로세로 좌표의 증감을 조절할 변수
+GLdouble r = 0.5, g = 0.5, b = 0.5; //RGB 초기는 회색이므로 모두 0.5
     
 void MyDisplay() {
     glClear(GL_COLOR_BUFFER_BIT);   //컬러버퍼 초기화

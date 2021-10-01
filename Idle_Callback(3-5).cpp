@@ -10,7 +10,7 @@
 //                  - - - - - - -                                         
 //**********************************************************************
 #include <GL/glut.h>
-float left = 0, right = 0, up = 0, down = 0; //가로세로 좌표의 증감을 조절할 변수
+GLdouble left = 0, right = 0, up = 0, down = 0; //가로세로 좌표의 증감을 조절할 변수
 
 void MyDisplay() {
     glClear(GL_COLOR_BUFFER_BIT);   //컬러버퍼 초기화
@@ -25,28 +25,28 @@ void MyDisplay() {
 }
 
 void MyIdleRight() {    //오른쪽으로 0.1씩 움직입니다
-    if (right < 0.4) {
+    if (right < 0.5) {
         left = left + 0.1; right = right + 0.1;
     }
     glutPostRedisplay();//프로그램 내용이 변경되었을 때 윈도우를 다시 출력하도록 하는 함수
 }
 
 void MyIdleLeft() {     //왼쪽으로 0.1씩 움직입니다
-    if (left > -0.4) {
+    if (left > -0.5) {
         left = left - 0.1; right = right - 0.1;
     }
     glutPostRedisplay();//프로그램 내용이 변경되었을 때 윈도우를 다시 출력하도록 하는 함수
 }
 
 void MyIdleUp() {      //위쪽으로 0.1씩 움직입니다
-    if (up < 0.4) {
+    if (up < 0.5) {
         up = up + 0.1; down = down + 0.1;
     }
     glutPostRedisplay();
 }
 
 void MyIdleDown() {    //아래쪽으로 0.1씩 움직입니다
-    if (down > -0.4) {
+    if (down > -0.5) {
         up = up - 0.1; down = down - 0.1;
     }
     glutPostRedisplay();//프로그램 내용이 변경되었을 때 윈도우를 다시 출력하도록 하는 함수

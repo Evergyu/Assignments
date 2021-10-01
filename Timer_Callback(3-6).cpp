@@ -9,9 +9,9 @@
 //**********************************************************************
 #include <GL/glut.h>
 
-GLfloat Delta = 0.0; 
-float r = 0, g = 0.5, b = 0.8;
-int direction = 1;
+GLdouble Delta = 0.0; 
+GLdouble r = 0, g = 0.5, b = 0.8;
+GLint direction = 1;
 GLboolean keep=true;
 
 void MyDisplay() {

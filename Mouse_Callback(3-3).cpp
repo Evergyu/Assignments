@@ -10,8 +10,8 @@
 //**********************************************************************
 
 #include <GL/glut.h>
-float left = 0, right = 0, up = 0, down = 0; //가로세로 좌표의 증감을 조절할 변수
-float r = 0.5, g = 0.5, b = 0.5; //RGB 초기는 회색이므로 모두 0.5
+GLdouble left = 0, right = 0, up = 0, down = 0; //가로세로 좌표의 증감을 조절할 변수
+GLdouble r = 0.5, g = 0.5, b = 0.5; //RGB 초기는 회색이므로 모두 0.5
 GLboolean keep = true;
 
 void MyDisplay() {
@@ -26,9 +26,13 @@ void MyDisplay() {
     glFlush();  //출력
 }
 
+/*keep이 true일 때 500msec 마다 0.1씩 이동하는데
+  우클릭을해서 keep이 false가 되면 움직임이 멈춥니다.*/
 void MyTimer(int Value) {
-    if (right < 0.4) {
-        left = left + 0.1; right = right + 0.1;
+    if (keep) {
+        if (right < 0.5) {
+            left = left + 0.1; right = right + 0.1;
+        }
     }
     glutTimerFunc(500, MyTimer, 1);
     glutPostRedisplay();
@@ -39,14 +43,11 @@ void MyMouseClick(GLint Button, GLint State, GLint X, GLint Y) {
     //왼쪽버튼을 누르면 네 점의 x좌표가 오른쪽으로 이동합니다
     //오른쪽벽을 뚫고 지나가지는 못합니다.
     if (Button == GLUT_LEFT_BUTTON && State == GLUT_DOWN) {
-        if (keep) {
-            glutTimerFunc(500, MyTimer, 1); //타이머 이벤트
-        }
-
-        //오른쪽 버튼을 누르면 GLboolean 타입의 변수가 false로 변하며 멈춰있습니다.
-        if (Button == GLUT_RIGHT_BUTTON && State == GLUT_DOWN) {
-            keep = false;
-        }
+        glutTimerFunc(500, MyTimer, 1); //타이머 이벤트  
+    }
+    //오른쪽 버튼을 누르면 GLboolean 타입의 변수가 false로 변하며 멈춰있습니다.
+    if (Button == GLUT_RIGHT_BUTTON && State == GLUT_DOWN) {
+        keep = false;
     }
 }
 
