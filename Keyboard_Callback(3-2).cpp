@@ -15,8 +15,8 @@
 //**********************************************************************
 
 #include <GL/glut.h>
-float left=0, right = 0 , up = 0, down = 0; //가로세로 좌표의 증감을 조절할 변수
-float r = 0.5, g = 0.5, b = 0.5; //RGB 초기는 회색이므로 모두 0.5
+GLdouble left=0, right = 0 , up = 0, down = 0; //가로세로 좌표의 증감을 조절할 변수
+GLdouble r = 0.5, g = 0.5, b = 0.5; //RGB 초기는 회색이므로 모두 0.5
 
 void MyDisplay() {
     glClear(GL_COLOR_BUFFER_BIT);   //컬러버퍼 초기화
@@ -63,7 +63,7 @@ void MySpecial(int key, int x, int y) {
         /*PAGE_DOWN을 누르면 각 좌표가 서로 중심을 향해 줄어들고
           화면에서 벗어나지 않도록 범위를 조절했습니다*/
     case GLUT_KEY_PAGE_DOWN:
-        if (left < 0.4 && right>-0.4 && down<0.4 && up > -0.4) {
+        if (left < 0.5 && right>-0.5 && down<0.5 && up > -0.5) {
             left += 0.1; right -= 0.1; up -= 0.1; down += 0.1;
         }
         break;
