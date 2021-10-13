@@ -1,0 +1,12 @@
+﻿  [6-7] Robot Arm.cpp
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(19,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(28,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(35,39): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(39,39): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(43,39): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(46,39): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(50,39): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(53,39): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(59,37): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\예제코드\[Code]\[6-7] Robot Arm.cpp(63,35): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+  Week6.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\Debug\Week6.exe
