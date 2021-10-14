@@ -1,35 +1,29 @@
 ﻿  CanRobot.cpp
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(26,23): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(28,23): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(38,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(46,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(47,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(55,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(56,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(57,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(65,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(73,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(74,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(82,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(50,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(55,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(57,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(58,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(66,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(78,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(83,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(84,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(92,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(99,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(100,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(106,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(107,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(116,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(123,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(124,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(131,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(132,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(140,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(147,23): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(156,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(157,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(164,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(165,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(172,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(173,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(180,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(181,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-  Week6.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\Debug\Week6.exe
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(85,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(86,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(94,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(96,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(103,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(105,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(110,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(112,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(119,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(121,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(128,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(130,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(135,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(137,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(145,1): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(144,8): error C2146: 구문 오류: ';'이(가) '고쳐야함' 식별자 앞에 없습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(145,20): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(145,20): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week6\CanRobot.cpp(231,2): error C3861: 'neckAndhead': 식별자를 찾을 수 없습니다.
