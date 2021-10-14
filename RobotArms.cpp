@@ -9,7 +9,7 @@
 //                  3을 누르면 손가락 3이 움직입니다
 //                  4를 누르면 모든 손가락이 움직입니다.
 //                  S를 누르면 손가락이 멈춥니다.
-//                  왼클릭을 하면 손이 오므려져 무언가를 잡으려 합니다.
+//                  우클릭을 하면 손이 초기 모양으로 돌아옵니다.
 //                  - - - - - - -                                         
 //**********************************************************************
 #include <stdlib.h>
@@ -227,93 +227,28 @@ void MyKeyboard (unsigned char key, int x, int y) {
    glutPostRedisplay();
 }
 
-void MyArmIdle() {
-    
-        //어깨의 각도가 원래 각도인 -50을 벗어나면 -50이 되도록 조정해줍니다.
-        if (shoulder < -50)
-            shoulder = (shoulder + 1);
-        if (shoulder > -50)
-            shoulder = (shoulder - 1);
-
-        //팔꿈치의 각도가 원래 각도인 30을 벗어나면 30이 되도록 조정해줍니다
-        if (elbow < 30)
-            elbow = (elbow + 1);
-        if (elbow > 30)
-            elbow = (elbow - 1);
-
-        //첫번째 손가락이 원래 각도인 30을 벗어나면 30이 되도록 조정해줍니다
-        if (joint_1_1 < 30) {
-            joint_1_1 += 1;
-        }
-        if (joint_1_1 > 30) {
-            joint_1_1 -= 1;
-        }
-        if (joint_1_2 > 30) {
-            joint_1_2 -= 1;
-        }
-        if (joint_1_2 < 30) {
-            joint_1_2 += 1;
-        }
-        if (joint_1_3 < 30) {
-            joint_1_3 += 1;
-        }
-        if (joint_1_3 > 30) {
-            joint_1_3 -= 1;
-        }
-
-        //두번째 손가락이 원래 각도인 20을 벗어나면 20이 되도록 조정해줍니다
-        if (joint_2_1 < 20) {
-            joint_2_1 += 1;
-        }
-        if (joint_2_1 > 20) {
-            joint_2_1 -= 1;
-        }
-        if (joint_2_2 > 20) {
-            joint_2_2 -= 1;
-        }
-        if (joint_2_2 < 20) {
-            joint_2_2 += 1;
-        }
-        if (joint_2_3 < 20) {
-            joint_2_3 += 1;
-        }
-        if (joint_2_3 > 20) {
-            joint_2_3 -= 1;
-        }
-
-        //세번째 손가락이 원래 각도인 10을 벗어나면 10이 되도록 조정해줍니다
-        if (joint_3_1 < 10) {
-            joint_3_1 += 1;
-        }
-        if (joint_3_1 > 10) {
-            joint_3_1 -= 1;
-        }
-        if (joint_3_2 > 10) {
-            joint_3_2 -= 1;
-        }
-        if (joint_3_2 < 10) {
-            joint_3_2 += 1;
-        }
-        if (joint_3_3 < 10) {
-            joint_3_3 += 1;
-        }
-        if (joint_3_3 > 10) {
-            joint_3_3 -= 1;
-        }
-    
-    glutPostRedisplay();
-}
 
 void MyMouseClick(GLint Button, GLint State, GLint X, GLint Y) {
 
-    //오른쪽버튼을 누르면 Idle을 호출해 초기 팔 모양을 만듭니다
-    //하지만 어깨,팔꿈치 관절을 움직이는 기능을 추가하지 않아서 알고리즘으로는
-    //초기상태로 돌아가게 만들어 두었지만 우클릭으로 실행되지는 않습니다
-    //두개 중 하나만 구현하면 된다고 하셔서 우클릭만 구현했습니다.
-
     if (Button == GLUT_RIGHT_BUTTON && State == GLUT_DOWN) {
-            glutIdleFunc(MyArmIdle); //Idle 이벤트
-           
+    
+    }
+
+    //오른쪽버튼을 누르면 어깨,팔꿈치,손가락 관절들이 모두 초기 각도로 돌아옵니다.
+    if (Button == GLUT_RIGHT_BUTTON && State == GLUT_DOWN) {
+        shoulder = -50;
+        elbow = 30;
+        joint_1_1 = 30;
+        joint_1_2 = 30;
+        joint_1_3 = 30;
+        
+        joint_2_1 = 20;
+        joint_2_2 = 20;
+        joint_2_3 = 20;
+        
+        joint_3_1 = 10;
+        joint_3_2 = 10;
+        joint_3_3 = 10;
     }
     
 }
