@@ -16,11 +16,11 @@
 #include <GL/glut.h>
 
 static int shoulder = -50, elbow=30;
-static int joint_1_1 = 30, joint_1_2 = 30, joint_1_3 = 30;
-static int joint_2_1 = 20, joint_2_2 = 20, joint_2_3 = 20;
-static int joint_3_1 = 10, joint_3_2 = 10, joint_3_3 = 10;
-static int active = 1,active1=1;
-
+static int joint_1_1 = 0, joint_1_2 = 0, joint_1_3 = 0;
+static int joint_2_1 = 0, joint_2_2 = 0, joint_2_3 = 0;
+static int joint_3_1 = 0, joint_3_2 = 0, joint_3_3 = 0;
+static int active = 1, direct1 = 1, direct2 = 1, direct3 = 1;
+static int active1 = 1;
 void MyInit(void) {
    glClearColor (0.0, 0.0, 0.0, 1.0);
    glShadeModel (GL_FLAT);
@@ -29,7 +29,7 @@ void MyInit(void) {
 void MyDisplay(void) {
    glClear (GL_COLOR_BUFFER_BIT);
    glPushMatrix(); //항등행렬 푸시 
-		glTranslatef (-3.0, 0.0, 0.0);	//어깨부분을 원하는 위치인 x축으로 -3만큼 이동시킵니다.
+		glTranslatef (-3.0, 1.0, 0.0);	//어깨부분을 원하는 위치인 x축으로 -3만큼 이동시킵니다.
 		glRotatef ((GLfloat)shoulder, 0.0, 0.0, 1.0); // 어깨부분을 기준으로 -30도 회전시킵니다
 		glTranslatef (1.0, 0.0, 0.0);	// 회전축으로 이용할 부분을 끝부분에 위치하도록 x축으로 1만큼 이동
 		glPushMatrix();	//윗팔 푸시
@@ -50,6 +50,7 @@ void MyDisplay(void) {
         glPushMatrix(); //1 여기까지 만든 손목부분을 푸시해 줍니다.
         //손가락1_1
         glTranslatef(1, 0, 0); //손목부분을 맞추기 위해 x축만큼 1 이동
+        glRotatef(-60, 0, 1, 0);    //손가락 각도조절
         glRotatef((GLfloat)joint_1_1, 0,0, 1); //손목부분을 기준으로 회전
         glTranslatef(0.3, 0, 0);    //도형의 크기를 (0.6,0.1,0.1)배 할 것이므로 그 반인 0.3을 이동시켜 회전축에 끝부분이 위치하도록 이동
         glPushMatrix(); //b
@@ -81,6 +82,7 @@ void MyDisplay(void) {
         glPopMatrix();//1 //손가락1 팝
 
         glPushMatrix();//2 //손가락2를 위한 푸시
+        
         //손가락 2_1
         glTranslatef(1, 0, 0);                  //손목의 끝에 맞춰 이동
         glRotatef((GLfloat)joint_2_1, 0, 0, 1); //손목 끝부분을 기준으로 회전
@@ -117,6 +119,7 @@ void MyDisplay(void) {
 
         //손가락 3_1
         glTranslatef(1, 0, 0);                  //손목의 끝에 맞춰 이동
+        glRotatef(60, 0, 1, 0);
         glRotatef((GLfloat)joint_3_1, 0, 0, 1); //손목 끝부분을 기준으로 회전
         glTranslatef(0.3, 0, 0);                //도형의 끝부분이 회전축에 위치하도록 이동
         glPushMatrix(); //b
@@ -164,21 +167,38 @@ void MyReshape (int w, int h) {
 }
 
 void MyTimer1(int Value) {  //손가락 1 움직이기
-        joint_1_1 = (joint_1_1 + 5) % 60;
-        joint_1_2 = (joint_1_2 + 5) % 60;
-        joint_1_3 = (joint_1_3 + 5) % 60;
-
+    if (direct1==1) {
+        joint_1_1 = (joint_1_1 + 5) % 90;
+        joint_1_2 = (joint_1_2 + 5) % 90;
+        joint_1_3 = (joint_1_3 + 5) % 90;
+    }                                  
+    else {                             
+        joint_1_1 = (joint_1_1 - 5) % 90;
+        joint_1_2 = (joint_1_2 - 5) % 90;
+        joint_1_3 = (joint_1_3 - 5) % 90;
+    }
+    if (joint_1_1 == 85) {
+        direct1 *= -1;
+    }
     glutPostRedisplay();
     if (active == 1) {  //active가 1일때 재귀호출
         glutTimerFunc(40, MyTimer1, 1);
     }
 }
 void MyTimer2(int Value) {  //손가락 2 움직이기
-
-    joint_2_1 = (joint_2_1 + 5) % 60;
-    joint_2_2 = (joint_2_2 + 5) % 60;
-    joint_2_3 = (joint_2_3 + 5) % 60;
-
+    if (direct2 == 1) {
+        joint_2_1 = (joint_2_1 + 5) % 90;
+        joint_2_2 = (joint_2_2 + 5) % 90;
+        joint_2_3 = (joint_2_3 + 5) % 90;
+    }
+    else {
+        joint_2_1 = (joint_2_1 - 5) % 90;
+        joint_2_2 = (joint_2_2 - 5) % 90;
+        joint_2_3 = (joint_2_3 - 5) % 90;
+    }
+    if (joint_2_1 == 85) {
+        direct1 *= -1;
+    }
     glutPostRedisplay();    
 
     if (active == 1) {  //active가 1일때 재귀호출
@@ -186,9 +206,19 @@ void MyTimer2(int Value) {  //손가락 2 움직이기
     }
 }
 void MyTimer3(int Value) {
-        joint_3_1 = (joint_3_1 + 5) % 60;
-        joint_3_2 = (joint_3_2 + 5) % 60;
-        joint_3_3 = (joint_3_3 + 5) % 60;
+    if (direct3 == 1) {
+        joint_3_1 = (joint_3_1 + 5) % 90;
+        joint_3_2 = (joint_3_2 + 5) % 90;
+        joint_3_3 = (joint_3_3 + 5) % 90;
+    }
+    else {
+        joint_3_1 = (joint_3_1 - 5) % 90;
+        joint_3_2 = (joint_3_2 - 5) % 90;
+        joint_3_3 = (joint_3_3 - 5) % 90;
+    }
+    if (joint_3_1 == 85 ) {
+        direct1 *= -1;
+    }
     
     glutPostRedisplay();
     if (active == 1) {  //active가 1일때 재귀호출
@@ -227,28 +257,64 @@ void MyKeyboard (unsigned char key, int x, int y) {
    glutPostRedisplay();
 }
 
+void MyIdle() {
+    if (joint_1_1 < 90) {
+        joint_1_1 = (joint_1_1 + 5) % 90;
+    }
+    else active1 = -1;
+    if (joint_1_2 < 90) {
+        if (active1 == 0) {
+            joint_1_2 = (joint_1_2 + 5) % 90;
+        }
+    }
+    else active1 = -1;
+
+    if (joint_1_3 < 90) {
+        joint_1_3 = (joint_1_3 + 5) % 90;
+    }
+    //else if (check == 0) { }
+
+    if (joint_2_1 < 90) {
+        joint_2_1 =(joint_2_1 + 5) % 90;
+    }
+    if (joint_2_2 < 90) {
+        joint_2_2 =(joint_2_2 + 5) % 90;
+    }if (joint_2_3 < 90) {
+        joint_2_3 =(joint_2_3 + 5) % 90;
+    }
+    
+    if (joint_3_1 < 90) {
+        joint_3_1 =(joint_3_1 + 5) % 90;
+    }
+    if (joint_3_2 < 90) {
+        joint_3_2 =(joint_3_2 + 5) % 90;
+    }if (joint_3_3 < 90) {
+        joint_3_3 =(joint_3_3 + 5) % 90;
+    }
+    glutPostRedisplay();
+}
 
 void MyMouseClick(GLint Button, GLint State, GLint X, GLint Y) {
 
-    if (Button == GLUT_RIGHT_BUTTON && State == GLUT_DOWN) {
-    
+    if (Button == GLUT_LEFT_BUTTON && State == GLUT_DOWN) {
+        glutIdleFunc(MyIdle);
     }
 
     //오른쪽버튼을 누르면 어깨,팔꿈치,손가락 관절들이 모두 초기 각도로 돌아옵니다.
     if (Button == GLUT_RIGHT_BUTTON && State == GLUT_DOWN) {
         shoulder = -50;
         elbow = 30;
-        joint_1_1 = 30;
-        joint_1_2 = 30;
-        joint_1_3 = 30;
+        joint_1_1 = 0;
+        joint_1_2 = 0;
+        joint_1_3 = 0;
         
-        joint_2_1 = 20;
-        joint_2_2 = 20;
-        joint_2_3 = 20;
+        joint_2_1 = 0;
+        joint_2_2 = 0;
+        joint_2_3 = 0;
         
-        joint_3_1 = 10;
-        joint_3_2 = 10;
-        joint_3_3 = 10;
+        joint_3_1 = 0;
+        joint_3_2 = 0;
+        joint_3_3 = 0;
     }
     
 }

@@ -139,86 +139,113 @@ void Left_Leg(){
 		glPopMatrix();								//실린더 그린부분 팝
 	glPopMatrix();									//수정하기 전 푸시한 부분 팝
 }
-
-
-머리 고쳐야함
-void neckAndhead() {
+void Neck() {
 	glPushMatrix();									//수정하기전 미리 푸시
 		//목
 		glTranslatef(0, 1.7, 0);
 		glRotatef(90, 1, 0, 0);						//목의 형태가 알맞게 Translate, Rotate
-		이부분glRotatef(neck, 0, 1, 0);					//목을 움직일때 쓰기위해 각도를 변수로 갖는 Rotate
 		glPushMatrix();								//TRR한 부분 푸시
 		glColor3f(0, 0.5, 1);
 		gluCylinder(qobj, 0.2, 0.2, 0.4, 20, 5);	//실린더 그리기
 		glPopMatrix();								//실린더 그린부분 팝
 		
-		//머리통
-		glRotatef(180, 1, 0, 0);					
-		glRotatef(neck, 1, 0, 0);					//목을 움직일때 쓰기위해 각도를 변수로 갖는 Rotate
-		glPushMatrix();								//Rotate, Translate한 부분 푸시
-		glColor3f(1, 0.6, 0.5);
-		gluCylinder(qobj, 0.4, 0.3, 0.5, 20, 5);	//실린더 그리기
-		glPopMatrix();								//실린더 그린 부분 팝
-		
-		glPushMatrix();								//머리형태까지 만든 것 푸시
-
-		//오른쪽눈
-		glTranslatef(0.15, -0.8, 0);				//눈 위치에 맞게 Translate
-		glScalef(0.1, 0.1, 0.1);					//눈 크기 설정
-		glPushMatrix();								//TS한 부분 푸시
-		glColor3f(1, 1, 1);
-		glutSolidSphere(0.5, 20, 8);				//구 그리기
-		glPopMatrix();								//구 그린부분 팝
-
-		//오른쪽 눈동자
-		glPushMatrix();								//위치는 옮길 필요 없으므로 그냥 푸시
-		glColor3f(0, 0, 0);							
-		glScalef(0.1, 0.1, 0.1);					//스케일 바꿔주고
-		glutSolidSphere(2, 20, 8);					//구 그리기
-		glPopMatrix();								//스케일 바꾼 후 구 그린부분 팝
-		
-		glPopMatrix();								//머리형태까지 만든 것 팝
-
-		glPushMatrix();								//머리형태까지 만든 것 푸시
-		//왼쪽눈
-		glTranslatef(-0.15, -0.8, 0);				//눈 위치에 맞게 Translate
-		glScalef(0.1, 0.1, 0.1);					//눈 크기 설정
-		glPushMatrix();								//TS한 부분 푸시
-		glColor3f(1, 1, 1);
-		glutSolidSphere(0.5, 20, 8);				//구 그리기
-		glPopMatrix();								//구 그린부분 팝
-
-		//왼쪽 눈동자
-		glPushMatrix();								//위치는 옮길 필요 없으므로 그냥 푸시
-		glColor3f(0, 0, 0);
-		glScalef(0.1, 0.1, 0.1);					//스케일 바꿔주고
-		glutSolidSphere(2, 20, 8);					//구 그리기
-		glPopMatrix();								//스케일 바꾼 후 구 그린부분 팝
-		
-		glPopMatrix();								//머리형태까지 만든 것 팝
-
 	glPopMatrix();									//수정하기전 미리 푸시한부분 팝
 }
+void Head() {
+	glPushMatrix();								//수정하기 전 푸시
+	//머리통
+	glTranslatef(0, 1.7, 0);
+	glRotatef(270, 1, 0, 0);
+	glRotatef(neck, 0, 1, 0);					//목을 움직일때 쓰기위해 각도를 변수로 갖는 Rotate
+	glTranslatef(0, 0.1, 0);
+	glPushMatrix();								//Rotate, Translate한 부분 푸시
+	glColor3f(1, 0.6, 0.5);
+	gluCylinder(qobj, 0.4, 0.3, 0.5, 20, 5);	//실린더 그리기
+	glPopMatrix();								//실린더 그린 부분 팝
 
+	//오른쪽눈
+	glRotatef(90, 1, 0, 0);					//머리를 270도 돌렸기 때문에 눈이 돌아가는 각도를 맞추기 위해
+											//Rotate
+	
+	glTranslatef(0.15, 0.3, 0);				//눈 위치에 맞게 Translate
+	glScalef(0.1, 0.1, 0.1);					//눈 크기 설정
+	glPushMatrix();								//TS한 부분 푸시
+	glColor3f(1, 1, 1);
+	glutSolidSphere(0.5, 20, 8);				//구 그리기
+	glPopMatrix();								//구 그린부분 팝
+
+	//오른쪽 눈동자
+	glPushMatrix();								//위치는 옮길 필요 없으므로 그냥 푸시
+	glColor3f(0, 0, 0);
+	glScalef(0.1, 0.1, 0.1);					//스케일 바꿔주고
+	glutSolidSphere(2, 20, 8);					//구 그리기
+	glPopMatrix();								//스케일 바꾼 후 구 그린부분 팝
+
+	//왼쪽눈
+	glTranslatef(-3, 0.0, 0);				//눈 위치에 맞게 Translate
+	glPushMatrix();								//TS한 부분 푸시
+	glColor3f(1, 1, 1);
+	glutSolidSphere(0.5, 20, 8);				//구 그리기
+	glPopMatrix();								//구 그린부분 팝
+
+	//왼쪽 눈동자
+	glPushMatrix();								//위치는 옮길 필요 없으므로 그냥 푸시
+	glColor3f(0, 0, 0);
+	glScalef(0.1, 0.1, 0.1);					//스케일 바꿔주고
+	glutSolidSphere(2, 20, 8);					//구 그리기
+	glPopMatrix();								//스케일 바꾼 후 구 그린부분 팝
+
+	glPopMatrix();								//수정 후 팝
+
+}
+
+void TimerHead(int Value) {
+	if()
+	neck = (neck + 5) % 40;
+
+	glutPostRedisplay();
+	glutTimerFunc(40, TimerHead, 1);
+}
+void TimerRArm(int Value) {
+	RightShoulder = (RightShoulder + 5) % 90;
+
+	glutPostRedisplay();
+	glutTimerFunc(40, TimerRArm, 1);
+}
+void TimerLArm(int Value) {
+	LeftShoulder = (LeftShoulder + 5) % 90;
+
+	glutPostRedisplay();
+	glutTimerFunc(40, TimerLArm, 1);
+}
+void TimerRLeg(int Value) {
+	RightLeg = (RightLeg + 5) % 60;
+
+	glutPostRedisplay();
+	glutTimerFunc(40, TimerRLeg, 1);
+}
+void TimerLLeg(int Value) {
+	LeftLeg = (LeftLeg - 5) % 60;
+
+	glutPostRedisplay();
+	glutTimerFunc(40, TimerLLeg, 1);
+}
 void MyMenu(int entryID) {
 	if (entryID == 1) {
-		neck = (neck + 5) % 90;
+		glutTimerFunc(40, TimerHead, 1);
 	}
 	if (entryID == 2) {
-		neck = (neck - 5) % 90;
+		glutTimerFunc(40, TimerRArm, 1);
 	}
 	if (entryID == 3) {
-		LeftShoulder = (LeftShoulder + 5) % 90;
+		glutTimerFunc(40, TimerLArm, 1);
 	}
 	if (entryID == 4) {
-		RightLeg = (RightLeg + 5) % 60;
+		glutTimerFunc(40, TimerRLeg, 1);
 	}
 	if (entryID == 5) {
-		LeftLeg = (LeftLeg + 5) % 60;
+		glutTimerFunc(40, TimerLLeg, 1);
 	}
-	
-	glutPostRedisplay();	//프로그램 내용이 변경되었을 때 윈도우를 출력하도록 하는 함수
 }
 void MyDisplay(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -228,16 +255,9 @@ void MyDisplay(void) {
 	Left_Arm();	//왼팔
 	Right_Leg();	//오른다리
 	Left_Leg();	//왼쪽다리
-	neckAndhead();	//목
+	Neck(); //목
+	Head();	//머리
 
-	GLint MyMenuID = glutCreateMenu(MyMenu);	//메뉴
-	glutAddMenuEntry("Move Head", 1);			//머리움직이기
-	glutAddMenuEntry("Move Right Hand", 2);		//오른팔 움직이기
-	glutAddMenuEntry("Move Left Hand", 3);		//왼쪽팔 움직이기
-	glutAddMenuEntry("Move Right Leg", 4);		//오른다리 움직이기
-	glutAddMenuEntry("Move Left Leg", 5);		//왼쪽다리 움직이기
-
-	glutAttachMenu(GLUT_RIGHT_BUTTON); //우클릭하면 메뉴가 나오도록 함
 	
 	glutSwapBuffers();
 }
@@ -277,6 +297,16 @@ int main(int argc, char** argv) {
 	glutDisplayFunc(MyDisplay); //display 이벤트
 	glutReshapeFunc(MyReshape);  //창 크기가 변했을때 이벤트
 	glutKeyboardFunc(MyKeyboard);
+	
+	GLint MyMenuID = glutCreateMenu(MyMenu);	//메뉴
+	glutAddMenuEntry("Move Head", 1);			//머리움직이기
+	glutAddMenuEntry("Move Right Hand", 2);		//오른팔 움직이기
+	glutAddMenuEntry("Move Left Hand", 3);		//왼쪽팔 움직이기
+	glutAddMenuEntry("Move Right Leg", 4);		//오른다리 움직이기
+	glutAddMenuEntry("Move Left Leg", 5);		//왼쪽다리 움직이기
+
+	glutAttachMenu(GLUT_RIGHT_BUTTON); //우클릭하면 메뉴가 나오도록 함
+
 	glutMainLoop();
 	return 0;
 }
