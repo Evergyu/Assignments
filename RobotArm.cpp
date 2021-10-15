@@ -168,79 +168,77 @@ void MyReshape (int w, int h) {
 
 void MyTimer1(int Value) {  //손가락 1 움직이기
     if (direct1==1) {
-        joint_1_1 = (joint_1_1 + 5) % 90;
-        joint_1_2 = (joint_1_2 + 5) % 90;
-        joint_1_3 = (joint_1_3 + 5) % 90;
+        joint_1_1 = (joint_1_1 + 1) % 90;
+        joint_1_2 = (joint_1_2 + 1) % 90;
+        joint_1_3 = (joint_1_3 + 1) % 90;
     }                                  
     else {                             
-        joint_1_1 = (joint_1_1 - 5) % 90;
-        joint_1_2 = (joint_1_2 - 5) % 90;
-        joint_1_3 = (joint_1_3 - 5) % 90;
+        joint_1_1 = (joint_1_1 - 1) % 90;
+        joint_1_2 = (joint_1_2 - 1) % 90;
+        joint_1_3 = (joint_1_3 - 1) % 90;
     }
-    if (joint_1_1 == 85) {
-        direct1 *= -1;
-    }
+    if (joint_1_1 == 89 ) direct1 = -1;
+    if (joint_1_1 == 1) direct1 = 1;
+    
     glutPostRedisplay();
     if (active == 1) {  //active가 1일때 재귀호출
-        glutTimerFunc(40, MyTimer1, 1);
+        glutTimerFunc(10, MyTimer1, 1);
     }
 }
 void MyTimer2(int Value) {  //손가락 2 움직이기
     if (direct2 == 1) {
-        joint_2_1 = (joint_2_1 + 5) % 90;
-        joint_2_2 = (joint_2_2 + 5) % 90;
-        joint_2_3 = (joint_2_3 + 5) % 90;
+        joint_2_1 = (joint_2_1 + 1) % 90;
+        joint_2_2 = (joint_2_2 + 1) % 90;
+        joint_2_3 = (joint_2_3 + 1) % 90;
     }
     else {
-        joint_2_1 = (joint_2_1 - 5) % 90;
-        joint_2_2 = (joint_2_2 - 5) % 90;
-        joint_2_3 = (joint_2_3 - 5) % 90;
+        joint_2_1 = (joint_2_1 - 1) % 90;
+        joint_2_2 = (joint_2_2 - 1) % 90;
+        joint_2_3 = (joint_2_3 - 1) % 90;
     }
-    if (joint_2_1 == 85) {
-        direct1 *= -1;
-    }
-    glutPostRedisplay();    
+    if (joint_2_1 == 89) direct2 = -1;
+    if (joint_2_1 == 1) direct2 = 1;
 
+    glutPostRedisplay();
     if (active == 1) {  //active가 1일때 재귀호출
-        glutTimerFunc(40, MyTimer2, 1);
+        glutTimerFunc(10, MyTimer2, 1);
     }
 }
 void MyTimer3(int Value) {
     if (direct3 == 1) {
-        joint_3_1 = (joint_3_1 + 5) % 90;
-        joint_3_2 = (joint_3_2 + 5) % 90;
-        joint_3_3 = (joint_3_3 + 5) % 90;
+        joint_3_1 = (joint_3_1 + 1) % 90;
+        joint_3_2 = (joint_3_2 + 1) % 90;
+        joint_3_3 = (joint_3_3 + 1) % 90;
     }
     else {
-        joint_3_1 = (joint_3_1 - 5) % 90;
-        joint_3_2 = (joint_3_2 - 5) % 90;
-        joint_3_3 = (joint_3_3 - 5) % 90;
+        joint_3_1 = (joint_3_1 - 1) % 90;
+        joint_3_2 = (joint_3_2 - 1) % 90;
+        joint_3_3 = (joint_3_3 - 1) % 90;
     }
-    if (joint_3_1 == 85 ) {
-        direct1 *= -1;
-    }
-    
+    if (joint_3_1 == 89) direct3 = -1;
+    if (joint_3_1 == 1) direct3 = 1;
+
     glutPostRedisplay();
     if (active == 1) {  //active가 1일때 재귀호출
-        glutTimerFunc(40, MyTimer3, 1);
+        glutTimerFunc(10, MyTimer3, 1);
     }
 }
 
 void MyKeyboard (unsigned char key, int x, int y) {
    switch (key) {
       case '1':
-          glutTimerFunc(40, MyTimer1, 1);   //1을 누르면 MyTimer1을 호출
+          glutTimerFunc(10, MyTimer1, 1);   //1을 누르면 MyTimer1을 호출
          break;
       case '2':
-          glutTimerFunc(40, MyTimer2, 1);   //2를 누르면 MyTimer2를 호출
+          glutTimerFunc(10, MyTimer2, 1);   //2를 누르면 MyTimer2를 호출
          break;
       case '3':
-          glutTimerFunc(40, MyTimer3, 1);   //3을 누르면 MyTimer3을 호출
+          glutTimerFunc(10, MyTimer3, 1);   //3을 누르면 MyTimer3을 호출
          break;
       case '4':
-          glutTimerFunc(40, MyTimer1, 1);   //4를 누르면 MyTimer1,2,3을 호출
-          glutTimerFunc(40, MyTimer2, 1);
-          glutTimerFunc(40, MyTimer3, 1);
+          glutTimerFunc(10, MyTimer1, 1);   //4를 누르면 MyTimer1,2,3을 호출
+          glutTimerFunc(10, MyTimer2, 1);
+          glutTimerFunc(10, MyTimer3, 1);
          break;
       case 'S':             //S를 누르면 active변수의 값을 1 또는 -1로 바꿔
           active *= -1;     //움직이고 있던 손가락을 멈춥니다
@@ -257,64 +255,27 @@ void MyKeyboard (unsigned char key, int x, int y) {
    glutPostRedisplay();
 }
 
-void MyIdle() {
-    if (joint_1_1 < 90) {
-        joint_1_1 = (joint_1_1 + 5) % 90;
-    }
-    else active1 = -1;
-    if (joint_1_2 < 90) {
-        if (active1 == 0) {
-            joint_1_2 = (joint_1_2 + 5) % 90;
-        }
-    }
-    else active1 = -1;
-
-    if (joint_1_3 < 90) {
-        joint_1_3 = (joint_1_3 + 5) % 90;
-    }
-    //else if (check == 0) { }
-
-    if (joint_2_1 < 90) {
-        joint_2_1 =(joint_2_1 + 5) % 90;
-    }
-    if (joint_2_2 < 90) {
-        joint_2_2 =(joint_2_2 + 5) % 90;
-    }if (joint_2_3 < 90) {
-        joint_2_3 =(joint_2_3 + 5) % 90;
-    }
-    
-    if (joint_3_1 < 90) {
-        joint_3_1 =(joint_3_1 + 5) % 90;
-    }
-    if (joint_3_2 < 90) {
-        joint_3_2 =(joint_3_2 + 5) % 90;
-    }if (joint_3_3 < 90) {
-        joint_3_3 =(joint_3_3 + 5) % 90;
-    }
-    glutPostRedisplay();
-}
-
 void MyMouseClick(GLint Button, GLint State, GLint X, GLint Y) {
 
     if (Button == GLUT_LEFT_BUTTON && State == GLUT_DOWN) {
-        glutIdleFunc(MyIdle);
+        //왼쪽버튼은 구현하지 않았습니다
     }
 
     //오른쪽버튼을 누르면 어깨,팔꿈치,손가락 관절들이 모두 초기 각도로 돌아옵니다.
     if (Button == GLUT_RIGHT_BUTTON && State == GLUT_DOWN) {
         shoulder = -50;
         elbow = 30;
-        joint_1_1 = 0;
-        joint_1_2 = 0;
-        joint_1_3 = 0;
-        
-        joint_2_1 = 0;
-        joint_2_2 = 0;
-        joint_2_3 = 0;
-        
-        joint_3_1 = 0;
-        joint_3_2 = 0;
-        joint_3_3 = 0;
+        joint_1_1 = 1;
+        joint_1_2 = 1;
+        joint_1_3 = 1;
+                    
+        joint_2_1 = 1;
+        joint_2_2 = 1;
+        joint_2_3 = 1;
+                    
+        joint_3_1 = 1;
+        joint_3_2 = 1;
+        joint_3_3 = 1;
     }
     
 }

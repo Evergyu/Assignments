@@ -18,6 +18,8 @@
 GLUquadricObj* qobj = gluNewQuadric(); // 货肺款 Quadric 积己
 static int RightShoulder = 60,RightElbow=-120,LeftShoulder = 60, LeftElbow = -120;
 static int RightLeg = 0, LeftLeg = 0, neck=0;
+static int move1 = 1, move2 = 1, move3 = 1, move4 = 1, move5 = 1;
+static int move_count1=1, move_count2=1, move_count3=1, move_count4=1, move_count5 = 1;
 void MyInit(void) {
 	glClearColor(0.0, 0.0, 0.0, 1.0);
 	glShadeModel(GL_FLAT);
@@ -200,51 +202,60 @@ void Head() {
 }
 
 void TimerHead(int Value) {
-	if()
-	neck = (neck + 5) % 40;
+	if (neck == 1) move1 = 1;
+	if (neck == 39) move1 = -1;
+	if (move_count1 == 1) {
+		if (move1 == 1) {
+			neck = (neck + 1) % 40;
+		}
+		else if (move1 == -1) {
+			neck = (neck - 1) % 40;
+			move_count1 = -1;
+		}
+	}
 
 	glutPostRedisplay();
-	glutTimerFunc(40, TimerHead, 1);
+	glutTimerFunc(10, TimerHead, 1);
 }
 void TimerRArm(int Value) {
-	RightShoulder = (RightShoulder + 5) % 90;
+	RightShoulder = (RightShoulder + 1) % 90;
 
 	glutPostRedisplay();
-	glutTimerFunc(40, TimerRArm, 1);
+	glutTimerFunc(10, TimerRArm, 1);
 }
 void TimerLArm(int Value) {
-	LeftShoulder = (LeftShoulder + 5) % 90;
+	LeftShoulder = (LeftShoulder + 1) % 90;
 
 	glutPostRedisplay();
-	glutTimerFunc(40, TimerLArm, 1);
+	glutTimerFunc(10, TimerLArm, 1);
 }
 void TimerRLeg(int Value) {
-	RightLeg = (RightLeg + 5) % 60;
+	RightLeg = (RightLeg + 1) % 60;
 
 	glutPostRedisplay();
-	glutTimerFunc(40, TimerRLeg, 1);
+	glutTimerFunc(10, TimerRLeg, 1);
 }
 void TimerLLeg(int Value) {
-	LeftLeg = (LeftLeg - 5) % 60;
+	LeftLeg = (LeftLeg - 1) % 60;
 
 	glutPostRedisplay();
-	glutTimerFunc(40, TimerLLeg, 1);
+	glutTimerFunc(10, TimerLLeg, 1);
 }
 void MyMenu(int entryID) {
 	if (entryID == 1) {
-		glutTimerFunc(40, TimerHead, 1);
+		glutTimerFunc(10, TimerHead, 1);
 	}
 	if (entryID == 2) {
-		glutTimerFunc(40, TimerRArm, 1);
+		glutTimerFunc(10, TimerRArm, 1);
 	}
 	if (entryID == 3) {
-		glutTimerFunc(40, TimerLArm, 1);
+		glutTimerFunc(10, TimerLArm, 1);
 	}
 	if (entryID == 4) {
-		glutTimerFunc(40, TimerRLeg, 1);
+		glutTimerFunc(10, TimerRLeg, 1);
 	}
 	if (entryID == 5) {
-		glutTimerFunc(40, TimerLLeg, 1);
+		glutTimerFunc(10, TimerLLeg, 1);
 	}
 }
 void MyDisplay(void) {
