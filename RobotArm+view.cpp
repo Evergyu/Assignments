@@ -10,11 +10,11 @@
 //**********************************************************************
 #include <stdlib.h>
 #include <GL/glut.h>
-#include <math.h>
+#include <math.h>           //각도 계산을 위해 추가한 헤더파일
 
-const double PI = 3.1415926;
-static float angle = 0.0;
-static float x = 0, y = 0, z = 0;     //카메라 위치
+const double PI = 3.1415926;                    //파이값
+static float angle_height = 0,angle_flat=0;     //각도
+static float Cx = 0, Cy = 0, Cz = 0;            //카메라 위치
 
 void MyInit(void) {
    glClearColor (0.0, 0.0, 0.0, 1.0);
@@ -149,10 +149,13 @@ void drawArm() {
 }
 
 void MyDisplay(void) {
-   glPushMatrix();                        //시점 설정 전푸시
-   glClear (GL_COLOR_BUFFER_BIT);
-   gluLookAt(-1+x, 0+y, 5+z,
-       -1, 0, 0, 
+   glPushMatrix();                          //시점 설정 전푸시
+   glClear (GL_COLOR_BUFFER_BIT);           
+   Cx = 5 * cos(angle_flat * PI / 180);     //카메라 초기 위치 x좌표
+   Cy = 5 * sin(angle_height * PI / 180);   //카메라 초기 위치 y좌표
+   Cz = 5 * sin(angle_flat * PI / 180);     //카메라 초기 위치 z좌표
+   gluLookAt(Cx, Cy, Cz,                    //gluLookAt으로 시점,초점 설정
+       -1, 0, 0,                            //(Cx,Cy,Cz) 위치에서 (-1,0,0)을 바라봅니다
        0.0, 1.0, 0.0);
    drawArm();                             //팔그리는 함수
 
@@ -172,27 +175,31 @@ void MyReshape(int w, int h) {
 void MySpecial(int key, int x, int y) {
     switch (key) {
         
-    case GLUT_KEY_LEFT:
-        x = x++;
-        //z = 5 * sin(angle * PI / 180);
-        if (angle == 360) angle = 0;
-        else angle += 10;
+    case GLUT_KEY_LEFT:                         //좌측키를 누르면 왼쪽으로 360도 돌며 
+        if (angle_flat == 360 || angle_flat == -360) angle_flat = 0;
+        else angle_flat -= 10;                  //조건에 따라 각도 변화
+        Cx = 5 * cos(angle_flat * PI / 180);    //후 좌표계산
+        Cz = 5 * sin(angle_flat * PI / 180);    
+    break;
+    
+    case GLUT_KEY_RIGHT:                        //우측키를 누르면 오른쪽으로 360도 돌며
+        if (angle_flat == 360 || angle_flat == -360) angle_flat = 0;
+        else angle_flat += 10;                  //조건에 따라 각도 변화
+        Cx = 5 * cos(angle_flat * PI / 180);    //후 좌표계산
+        Cz = 5 * sin(angle_flat *PI/180);
         break;
-    case GLUT_KEY_RIGHT:
-        x = 5 * cos(angle*PI/180);
-        z = 5 * sin(angle*PI/180);
-        if (angle == 360) angle = 0;
-        else angle -= 10;
+    
+    //위아래 움직이는 것은 원래 xz좌표평면에서 처럼 360도 도는 것을 생각했는데 그것이 안되어 경험적으로
+    //angle_height의 범위를 360까지로 제한해 위아래로 180도 움직이며 관찰할 수 있도록 구현했습니다.
+    case GLUT_KEY_UP:                           //윗 키를 누르면 위아래로 180도(위로 90 아래로 90) 돌며
+        if (angle_height == 360 || angle_height == -360) angle_height = 0;
+        else angle_height += 10;                //조건에 따라 각도 변화
+        Cy = 5 * sin(angle_height * PI / 180);  //후 좌표계산
         break;
-    case GLUT_KEY_UP:
-        y = 5 * sin(angle * PI / 180);
-        if (angle == 360) angle = 0;
-        else angle -= 10;
-        break;
-    case GLUT_KEY_DOWN:
-        y = 5 * sin(angle * PI / 180);
-        if (angle == 360) angle = 0;
-        else angle -= 10;
+    case GLUT_KEY_DOWN:                         //아래 키를 누르면 아래위로 180도(위로 90 아래로 90) 돌며
+        if (angle_height == 180 || angle_height == -180) angle_height = 0;
+        else angle_height -= 10;                //조건에 따라 각도 변화
+        Cy = 5 * sin(angle_height * PI / 180);  //후 좌표계산
         break;
     default:
         break;
@@ -209,8 +216,8 @@ int main(int argc, char** argv) {
    MyInit ();   //초기화
    glutDisplayFunc(MyDisplay); //display 이벤트
    glutReshapeFunc(MyReshape);  //창 크기가 변했을때 이벤트
-   
-   glutSpecialFunc(MySpecial);
+
+   glutSpecialFunc(MySpecial);  //특수키 이벤트
    glutMainLoop();
    return 0;
 }
