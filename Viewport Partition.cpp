@@ -52,19 +52,29 @@ void MyDisplay() {
     
     glPushMatrix();
     gluLookAt(0.0 + Cx_O, 0.0 + Cy_O, 1.0 , 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);  //시점 (0,Cx_O,Cy_O) 초점(1,0,0) 카메라 정수리(0,1,0)
-        DrawScene();            
+        DrawScene();
+        glTranslatef(0, 1, 0);
+        glColor3f(1, 0, 0);
+        glRotatef(45, 0, 1, 1);
+        glutWireCube(0.5);
     glPopMatrix();
     
     glViewport(Width/2, 0, Width/2, Height/2);          //오른쪽하단 뷰폿
     glPushMatrix();
         gluLookAt(1.0, 0.0+Cy_O, 0.0 + Cx_O, 0.0, 0.0, 0.0,  0.0, 1.0, 0.0); //시점 (1.0, 0.0+Cy_O, 0.0 + Cx_O) 초점(0,0,0) 카메라 정수리(0,1,0)
         DrawScene();
+        glTranslatef(0, 1, 0);
+        glColor3f(1, 0, 0);
+        glutWireSphere(0.5, 10, 10);
     glPopMatrix();
     
     glViewport(0, Height/2, Width/2, Height/2);         //왼쪽상단 뷰폿
     glPushMatrix();
         gluLookAt(0.0 + Cx_O, 1.0 , 0.0+Cy_O,   0.0, 0.0, 0.0,   0.0, 0.0, -1.0); //시점 (0.0 + Cx_O, 1.0 , 0.0+Cy_O) 초점(0,0,0) 카메라 정수리(0,0,-1)
         DrawScene();
+        glTranslatef(0, 0, 0.3);
+        glColor3f(1, 0, 0);
+        glutWireCone(0.8, 0.5, 10, 10);
     glPopMatrix();
     
     glViewport(Width/2, Height/2, Width/2, Height/2);   //오른쪽상단 뷰폿
@@ -76,6 +86,10 @@ void MyDisplay() {
         glPushMatrix();
             gluLookAt(5.0+Cx_P, 5.0+Cy_P, 5.0,  0.0, 0.0, 0.0,  0.0, 1.0, 0.0); //시점 (5.0+Cx_P, 5.0+Cy_P, 5.0) 초점(0,0,0) 카메라 정수리(0,1,0)
             DrawScene();
+            glTranslatef(0, 1, 0);
+            glRotatef(90, 1, 0, 0);
+            glColor3f(1, 0, 0);
+            glutWireTorus(0.1, 0.5, 10, 10);
         glPopMatrix();
         glMatrixMode(GL_PROJECTION);
     glPopMatrix();
