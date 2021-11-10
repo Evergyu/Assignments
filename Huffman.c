@@ -13,6 +13,8 @@ typedef struct node {       //노드의 구조체입니다.
 }NODE;
 int countt = 0;
 
+int stack[100] = { 0, }, top = 0;
+
 NODE* CountString(char str[]);              //빈도수를 계산하는 함수입니다
 void LinkNode(NODE* head, char character);  //노드를 추가해서 잇는 함수입니다.
 NODE* AddNode(char character);              //노드를 추가하는 함수입니다.
@@ -20,6 +22,11 @@ NODE* AddNode(char character);              //노드를 추가하는 함수입�
 NODE* FindSmall(NODE* head);                //연결리스트에서 가장 작은 값 찾기
 NODE* RemoveLink(NODE* head, NODE* min);    //Min노드를 연결리스트에서 빼내기            
 NODE* HuffmanTree(NODE* head);              //허프만트리 만들기
+
+void inorderTraversal(NODE* cur);
+void push(int n);
+int pop();
+void showCode();
 
 void display(NODE* x, int h)
 {
@@ -37,16 +44,16 @@ void display(NODE* x, int h)
 
 int main() {
     char str[MAX];                          //MAX만큼의 크기를 가진 캐릭터형 배열 str
-    NODE* node,*TreeRoot;                             //빈도수 계산을 linked list로 해서 그 시작점을 맡을 노드포인터 
+    NODE* node, * TreeRoot;                             //빈도수 계산을 linked list로 해서 그 시작점을 맡을 노드포인터 
 
     printf("Put the string to encode:");
     scanf("%s", str);                       //문자열 입력
     node = CountString(str);
 
 
-    TreeRoot=HuffmanTree(node);
-    
-    display(TreeRoot, 0);
+    TreeRoot = HuffmanTree(node);
+
+    inorderTraversal(TreeRoot);
     return 0;
 }
 
@@ -118,46 +125,49 @@ NODE* FindSmall(NODE* head) {   //연결리스트를 돌면서 count값이 가�
   경우1 : min노드가 가장 앞에있을경우
   경우2 : min노드가 중간에 있을 경우
   경우3 : min노드가 가장 끝에 있을 경우*/
-NODE* RemoveLink(NODE* head, NODE* min) {   
-    NODE* prev = head, * p = head, * first = head;  
-    while (p != NULL) {     //먼저 p==min이 될 때까지 p를이동
+NODE* RemoveLink(NODE* head, NODE* min) {
+    NODE* p = head, * prev = head, * cur = NULL;
+
+    if (head == NULL) return 0;
+
+    while (p != NULL) {     //먼저 p를 이동시켜가며 min노드의 주소에 p를 이동시킵니다
+        cur = p;
         if (p == min) {
             break;
         }
         prev = p;
         p = p->next;
     }
-    
-    if (head == p) {        //경우1
-        first = p->next;    
-        p->next = NULL;
+
+    if (prev == p) {        //prev와 p가 같으면 케이스1번입니다
+        p->next == NULL;    //다음 노드로 연결된 엣지를 끊고
+        return cur->next;   //헤드주소값으로 p다음 노드가 가야하므로 cur->next 리턴
     }
-
-    if (p->next != NULL) {  //경우2
-        prev->next = p->next;
-        p->next = NULL;
+    if (p->next != NULL) {          //케이스2 min이 중간에 있을때
+        prev->next = cur->next;     //이전노드와 다음노드를 이어주고
+        cur->next = NULL;           //현재노드의 연결된 엣지를 끊어줍니다
+        return head;                //헤드 리턴
     }
-
-    if (p->next == NULL) prev->next = NULL; //경우3
-
-    if (p == NULL) return NULL;
-
-    return first;
+    if (p->next == NULL) {          //케이스3 min이 마지막노드일 때
+        prev->next = NULL;          //min 노드와 연결된 엣지를 끊고
+        return head;                //헤드 리턴
+    }
 }
-
+ 
 NODE* HuffmanTree(NODE* head) {
     NODE* One, * Two, * parent = NULL;
 
     while (head->next != NULL) {            //head->next==NULL일 때 haed==루트
         One = FindSmall(head);              //연결리스트에서 가장 작은것을 One
-        head = RemoveLink(head, One);    //연결리스트에서 One 제거
+        head = RemoveLink(head, One);       //One 노드의 엣지들을 끊고 헤드를 리턴
         Two = FindSmall(head);              //One이 없는 연결리스트에서 가장 작은것을 Two
-        head = RemoveLink(head, Two);    //연결리스트에서 Two 제거
-
-        printf("%c : %d\n", One->alphabet, One->count);
-        printf("%c : %d\n", Two->alphabet, Two->count);
-        printf("\n");
+        head = RemoveLink(head, Two);       //Two 노드의 엣지들을 끊고 헤드를 리턴
+       
         
+        //printf("%c : %d\n", One->alphabet, One->count);
+        //printf("%c : %d\n", Two->alphabet, Two->count);
+        //printf("\n");
+
         parent = (NODE*)malloc(sizeof(NODE));       //parent노드를 하나 만들어
         parent->left = One; parent->right = Two;    //최소노드 두개를 left,right엣지로 연결합니다.
         parent->next = NULL;
@@ -167,8 +177,46 @@ NODE* HuffmanTree(NODE* head) {
         parent->next = head;                        //연결리스트의 첫 노드인 헤드에 panrent를 잇고
         head = parent;                              //parent를 헤드로 초기화합니다.
     }
-    
+
     return parent;  //반복문을 나왔을 때 parent==루트노드 이므로 return parent 해줍니다.
 }
 
-트리 마지막 두개남았을때 그냥 나가버림
+void inorderTraversal(NODE* cur)
+{
+    if (cur == NULL)
+    {
+        pop();
+        return;
+    }
+    push(0);
+    inorderTraversal(cur->left);
+    if (cur->left == NULL && cur->right == NULL)
+    {
+        printf("%c : ", cur->alphabet);
+        showCode();
+    }
+    push(1);
+    inorderTraversal(cur->right);
+    pop();
+}
+
+void push(int n)
+{
+    top += 1;
+    stack[top] = n;
+}
+
+int pop()
+{
+    int result = stack[top];
+    top -= 1;
+    return result;
+}
+void showCode()
+{
+    for (int i = top - 1; i >= 0; i--)
+    {
+        printf("%d", stack[i]);
+    }
+    printf("\n");
+}
