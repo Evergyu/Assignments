@@ -8,14 +8,16 @@
 typedef struct node {       //노드의 구조체입니다.
     int count;              //빈도수
     char alphabet;          //문자
-    char code[MAX];
+    char *code;
     struct node* left;      //트리에서 쓰일 엣지 두개
     struct node* right;
-    struct node* next;
+    struct node* next;      //최소값을 찾을때 연결리스트에 쓰이는 엣지
 }NODE;
 int countt = 0;
 
-char stack[MAX] = { 0, }, top = 0;
+char stack[MAX];            //스택
+int top = -1,               //스택에쓰일 top
+    height=0;               //높이에 쓰일 변수 height
 
 NODE* CountString(char str[]);              //빈도수를 계산하는 함수입니다
 void LinkNode(NODE* head, char character);  //노드를 추가해서 잇는 함수입니다.
@@ -25,24 +27,9 @@ NODE* FindSmall(NODE* head);                //연결리스트에서 가장 작�
 NODE* RemoveLink(NODE* head, NODE* min);    //Min노드를 연결리스트에서 빼내기            
 NODE* HuffmanTree(NODE* head);              //허프만트리 만들기
 
-void inorderTraversal(NODE* cur);
-void push(char n);
-char pop();
-void showCode();
-
-void display(NODE* x, int h)
-{
-    if (x == NULL)
-    {
-        return;
-    }
-    printf("[ %d ] : ", h);
-    countt++;
-    printf("%d", x->count);
-    printf("\n");
-    display(x->left, h + 1);
-    display(x->right, h + 1);
-}
+void Traversal(NODE* cur);                  //중위순회하며 각 노드에 코드추가
+void push(char n);                          //스택에쓰일 푸시
+char pop();                                 //팝
 
 int main() {
     char str[MAX];                          //MAX만큼의 크기를 가진 캐릭터형 배열 str
@@ -55,7 +42,7 @@ int main() {
 
     TreeRoot = HuffmanTree(node);
 
-    inorderTraversal(TreeRoot);
+    Traversal(TreeRoot);
     return 0;
 }
 
@@ -155,7 +142,7 @@ NODE* RemoveLink(NODE* head, NODE* min) {
         return head;                //헤드 리턴
     }
 }
- 
+
 NODE* HuffmanTree(NODE* head) {
     NODE* One, * Two, * parent = NULL;
 
@@ -164,8 +151,8 @@ NODE* HuffmanTree(NODE* head) {
         head = RemoveLink(head, One);       //One 노드의 엣지들을 끊고 헤드를 리턴
         Two = FindSmall(head);              //One이 없는 연결리스트에서 가장 작은것을 Two
         head = RemoveLink(head, Two);       //Two 노드의 엣지들을 끊고 헤드를 리턴
-       
-        
+
+
         //printf("%c : %d\n", One->alphabet, One->count);
         //printf("%c : %d\n", Two->alphabet, Two->count);
         //printf("\n");
@@ -183,44 +170,36 @@ NODE* HuffmanTree(NODE* head) {
     return parent;  //반복문을 나왔을 때 parent==루트노드 이므로 return parent 해줍니다.
 }
 
-void inorderTraversal(NODE* p)
+void Traversal(NODE* cur) //중위순회를 하면서
 {
-    char str[MAX];
-    int i;
-    top=-1;					//top을 -1로 초기화하고
-	while(1){				
-        while(p!=NULL){	//왼쪽 자식노드가 NULL일때까지
-			push('0');		//푸시
-			p=p->left;
-		}
-		for(i=0;i<strlen(stack);i++)
-        p->code[i]=pop();			//후 팝해서 node에 넣고
-
-		if(p==NULL) {
-			break;	//node가 NULL이면 종료
-		}
-		printf(" [%c] ", p->code);	//node의 키 출력
-		p=p->right;				//노드의 오른쪽 자식노드로 이동
-	}
-}
-
-void push(char n)
-{
-    top += 1;
-    stack[top] = n;
-}
-
-char pop()
-{
-    char result = stack[top];
-    top -= 1;
-    return result;
-}
-void showCode()
-{
-    for (int i = top - 1; i >= 0; i--)
-    {
-        printf("%d", stack[i]);
+    if (cur == NULL){   //빈노드면
+        pop();          //pop해주고 
+        height--;       //높이 1감소
+        return;         //종료
     }
-    printf("\n");
+    push('0');              //왼쪽으로 이동하면 스택에 0추가
+    height++;               //높이 1증가
+    Traversal(cur->left);   
+    if (cur->left == 0 && cur->right == 0)                  //리프노드이면
+    {
+        cur->code = (char*)malloc(sizeof(char) * height);   //높이만큼 노드의 code를 동적할당
+        strcpy(cur->code, stack);                           //스택에 쌓인 문자열 카피
+    }
+    push('1');              //오른쪽으로 이동하면 스택에 1추가
+    height++;               //높이 1추가
+    Traversal(cur->right);
+    pop();                  //스택에서 한칸 제거
+    height--;               //위 노드로 돌아가므로 1감소
+}
+
+void push(char c){                  //스택 푸시
+    top += 1;                       //top을 1칸늘리고
+    stack[top] = c;                 //stack[top]를 c(0 또는 1)로 초기화
+}
+
+char pop(){                         //스택 팝
+    char result = stack[top];
+    if(top>0) stack[top] = '\0';    //top을 한칸 줄이면서 스택에 초기화된 0또는 1을 NUL로 초기화
+    top -= 1;                       //top--
+    return result;
 }
