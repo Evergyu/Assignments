@@ -3,9 +3,11 @@
 #include <string.h>
 
 int main(){
-    char str1[100];
+    char str1[100]="\0";
     char str2[100]="hi";
-
-    strcpy(str1,str2);
+    char str3[100]=" hello";
+    strcat(str1,str2);
+    strcat(str1,str3);
     printf("%s",str1);
+
 }

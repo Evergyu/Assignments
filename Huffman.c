@@ -8,16 +8,14 @@
 typedef struct node {       //노드의 구조체입니다.
     int count;              //빈도수
     char alphabet;          //문자
-    char *code;
+    char* code;
     struct node* left;      //트리에서 쓰일 엣지 두개
     struct node* right;
     struct node* next;      //최소값을 찾을때 연결리스트에 쓰이는 엣지
 }NODE;
-int countt = 0;
-
 char stack[MAX];            //스택
 int top = -1,               //스택에쓰일 top
-    height=0;               //높이에 쓰일 변수 height
+height = 0;               //높이에 쓰일 변수 height
 
 NODE* CountString(char str[]);              //빈도수를 계산하는 함수입니다
 void LinkNode(NODE* head, char character);  //노드를 추가해서 잇는 함수입니다.
@@ -31,8 +29,11 @@ void Traversal(NODE* cur);                  //중위순회하며 각 노드에 �
 void push(char n);                          //스택에쓰일 푸시
 char pop();                                 //팝
 
-void encoding(char str[],NODE* TreeRoot);
+void encoding(char str[], NODE* TreeRoot);
 void printcode(char c, NODE* p);
+
+char b_str[MAX*3]="\0";
+void decoding(NODE* TreeRoot);
 
 int main() {
     char str[MAX];                          //MAX만큼의 크기를 가진 캐릭터형 배열 str
@@ -44,10 +45,15 @@ int main() {
     head = CountString(str);                //빈도수를 세서 연결리스트 생성 후 헤드노드 리턴 
     TreeRoot = HuffmanTree(head);           //헤드노드를 인자로받아 트리의 루트노드를 리턴
     Traversal(TreeRoot);                    //허프만트리의 리프노드에 각 변수에 대응하는 코드 리턴
-    
+
     printf("\nencoding...\n\n");
     printf("Encoded Result : ");
-    encoding(str,TreeRoot);
+    encoding(str, TreeRoot);
+    
+    printf("\ndecoding...\n\n");
+    printf("Decoding Result :");
+    decoding
+
     return 0;
 }
 
@@ -157,7 +163,6 @@ NODE* HuffmanTree(NODE* head) {
         Two = FindSmall(head);              //One이 없는 연결리스트에서 가장 작은것을 Two
         head = RemoveLink(head, Two);       //Two 노드의 엣지들을 끊고 헤드를 리턴
 
-
         //printf("%c : %d\n", One->alphabet, One->count);
         //printf("%c : %d\n", Two->alphabet, Two->count);
         //printf("\n");
@@ -177,14 +182,14 @@ NODE* HuffmanTree(NODE* head) {
 
 void Traversal(NODE* cur) //중위순회를 하면서
 {
-    if (cur == NULL){   //빈노드면
+    if (cur == NULL) {   //빈노드면
         pop();          //pop해주고 
         height--;       //높이 1감소
         return;         //종료
     }
     push('0');              //왼쪽으로 이동하면 스택에 0추가
     height++;               //높이 1증가
-    Traversal(cur->left);   
+    Traversal(cur->left);
     if (cur->left == 0 && cur->right == 0)                  //리프노드이면
     {
         cur->code = (char*)malloc(sizeof(char) * height);   //높이만큼 노드의 code를 동적할당
@@ -198,32 +203,32 @@ void Traversal(NODE* cur) //중위순회를 하면서
     height--;               //위 노드로 돌아가므로 1감소
 }
 
-void push(char c){                  //스택 푸시
+void push(char c) {                  //스택 푸시
     top += 1;                       //top을 1칸늘리고
     stack[top] = c;                 //stack[top]를 c(0 또는 1)로 초기화
 }
 
-char pop(){                         //스택 팝
+char pop() {                         //스택 팝
     char result = stack[top];
-    if(top>0) stack[top] = '\0';    //top을 한칸 줄이면서 스택에 초기화된 0또는 1을 NUL로 초기화
+    if (top > 0) stack[top] = '\0';    //top을 한칸 줄이면서 스택에 초기화된 0또는 1을 NUL로 초기화
     top -= 1;                       //top--
     return result;
 }
 
-void encoding(char str[], NODE* TreeRoot){
-    int i;
-    
-    for (i = 0; i < strlen(str); i++) {
-        printcode(str[i], TreeRoot);
+void encoding(char str[], NODE* TreeRoot) {
+    int i;                                  
+    for (i = 0; i < strlen(str); i++) {     //배열의 크기만큼 반복문을 돌려
+        printcode(str[i], TreeRoot);        //str[i]에 해당하는 노드를 찾아 코드 출력
     }
 }
 
-void printcode(char c, NODE* p){
-    if (p->left == NULL && p->right == NULL) {
-        if (c == p->alphabet)  printf("%s ", p->code);
+void printcode(char c, NODE* p) {
+    if (p->left == NULL && p->right == NULL) {          //리프노드일때까지 재귀함수로 반복하여
+        strcat(b_str, p->code);                         //decoding을 위해 char 배열에 붙여넣기
+        if (c == p->alphabet)  printf("%s", p->code);   //찾으면 코드 출력
         return;
     }
-    if (p->left != NULL) printcode(c, p);
-    if (p->right != NULL) printcode(c, p);
+    if (p->left != NULL) printcode(c, p->left);
+    if (p->right != NULL) printcode(c, p->right);
 }
 
