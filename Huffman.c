@@ -31,18 +31,23 @@ void Traversal(NODE* cur);                  //중위순회하며 각 노드에 �
 void push(char n);                          //스택에쓰일 푸시
 char pop();                                 //팝
 
+void encoding(char str[],NODE* TreeRoot);
+void printcode(char c, NODE* p);
+
 int main() {
     char str[MAX];                          //MAX만큼의 크기를 가진 캐릭터형 배열 str
-    NODE* node, * TreeRoot;                             //빈도수 계산을 linked list로 해서 그 시작점을 맡을 노드포인터 
+    NODE* head, * TreeRoot;                             //빈도수 계산을 linked list로 해서 그 시작점을 맡을 노드포인터 
+    int i;
 
     printf("Put the string to encode:");
     scanf("%s", str);                       //문자열 입력
-    node = CountString(str);
-
-
-    TreeRoot = HuffmanTree(node);
-
-    Traversal(TreeRoot);
+    head = CountString(str);                //빈도수를 세서 연결리스트 생성 후 헤드노드 리턴 
+    TreeRoot = HuffmanTree(head);           //헤드노드를 인자로받아 트리의 루트노드를 리턴
+    Traversal(TreeRoot);                    //허프만트리의 리프노드에 각 변수에 대응하는 코드 리턴
+    
+    printf("\nencoding...\n\n");
+    printf("Encoded Result : ");
+    encoding(str,TreeRoot);
     return 0;
 }
 
@@ -184,6 +189,7 @@ void Traversal(NODE* cur) //중위순회를 하면서
     {
         cur->code = (char*)malloc(sizeof(char) * height);   //높이만큼 노드의 code를 동적할당
         strcpy(cur->code, stack);                           //스택에 쌓인 문자열 카피
+        printf("%c : %s\n", cur->alphabet, cur->code);
     }
     push('1');              //오른쪽으로 이동하면 스택에 1추가
     height++;               //높이 1추가
@@ -203,3 +209,21 @@ char pop(){                         //스택 팝
     top -= 1;                       //top--
     return result;
 }
+
+void encoding(char str[], NODE* TreeRoot){
+    int i;
+    
+    for (i = 0; i < strlen(str); i++) {
+        printcode(str[i], TreeRoot);
+    }
+}
+
+void printcode(char c, NODE* p){
+    if (p->left == NULL && p->right == NULL) {
+        if (c == p->alphabet)  printf("%s ", p->code);
+        return;
+    }
+    if (p->left != NULL) printcode(c, p);
+    if (p->right != NULL) printcode(c, p);
+}
+
