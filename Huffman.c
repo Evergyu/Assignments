@@ -2,18 +2,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 100
 typedef struct node {       //노드의 구조체입니다.
     int count;              //빈도수
     char alphabet;          //문자
+    char code[MAX];
     struct node* left;      //트리에서 쓰일 엣지 두개
     struct node* right;
     struct node* next;
 }NODE;
 int countt = 0;
 
-int stack[100] = { 0, }, top = 0;
+char stack[MAX] = { 0, }, top = 0;
 
 NODE* CountString(char str[]);              //빈도수를 계산하는 함수입니다
 void LinkNode(NODE* head, char character);  //노드를 추가해서 잇는 함수입니다.
@@ -24,8 +26,8 @@ NODE* RemoveLink(NODE* head, NODE* min);    //Min노드를 연결리스트에서
 NODE* HuffmanTree(NODE* head);              //허프만트리 만들기
 
 void inorderTraversal(NODE* cur);
-void push(int n);
-int pop();
+void push(char n);
+char pop();
 void showCode();
 
 void display(NODE* x, int h)
@@ -181,34 +183,36 @@ NODE* HuffmanTree(NODE* head) {
     return parent;  //반복문을 나왔을 때 parent==루트노드 이므로 return parent 해줍니다.
 }
 
-void inorderTraversal(NODE* cur)
+void inorderTraversal(NODE* p)
 {
-    if (cur == NULL)
-    {
-        pop();
-        return;
-    }
-    push(0);
-    inorderTraversal(cur->left);
-    if (cur->left == NULL && cur->right == NULL)
-    {
-        printf("%c : ", cur->alphabet);
-        showCode();
-    }
-    push(1);
-    inorderTraversal(cur->right);
-    pop();
+    char str[MAX];
+    int i;
+    top=-1;					//top을 -1로 초기화하고
+	while(1){				
+        while(p!=NULL){	//왼쪽 자식노드가 NULL일때까지
+			push('0');		//푸시
+			p=p->left;
+		}
+		for(i=0;i<strlen(stack);i++)
+        p->code[i]=pop();			//후 팝해서 node에 넣고
+
+		if(p==NULL) {
+			break;	//node가 NULL이면 종료
+		}
+		printf(" [%c] ", p->code);	//node의 키 출력
+		p=p->right;				//노드의 오른쪽 자식노드로 이동
+	}
 }
 
-void push(int n)
+void push(char n)
 {
     top += 1;
     stack[top] = n;
 }
 
-int pop()
+char pop()
 {
-    int result = stack[top];
+    char result = stack[top];
     top -= 1;
     return result;
 }
