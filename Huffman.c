@@ -15,7 +15,7 @@ typedef struct node {       //노드의 구조체입니다.
 }NODE;
 char stack[MAX];            //스택
 int top = -1,               //스택에쓰일 top
-height = 0;               //높이에 쓰일 변수 height
+height = 0;                 //높이에 쓰일 변수 height
 
 NODE* CountString(char str[]);              //빈도수를 계산하는 함수입니다
 void LinkNode(NODE* head, char character);  //노드를 추가해서 잇는 함수입니다.
@@ -29,11 +29,11 @@ void Traversal(NODE* cur);                  //중위순회하며 각 노드에 �
 void push(char n);                          //스택에쓰일 푸시
 char pop();                                 //팝
 
-void encoding(char str[], NODE* TreeRoot);
+void encoding(char str[], NODE* TreeRoot);  //인코딩 함수
 void printcode(char c, NODE* p);
 
-char b_str[MAX*3]="\0";
-void decoding(NODE* TreeRoot);
+char b_str[MAX*3]="\0";                     //Binary String
+void decoding(NODE* TreeRoot);              //디코딩 함수
 
 int main() {
     char str[MAX];                          //MAX만큼의 크기를 가진 캐릭터형 배열 str
@@ -46,14 +46,14 @@ int main() {
     TreeRoot = HuffmanTree(head);           //헤드노드를 인자로받아 트리의 루트노드를 리턴
     Traversal(TreeRoot);                    //허프만트리의 리프노드에 각 변수에 대응하는 코드 리턴
 
-    printf("\nencoding...\n\n");
+    printf("\nencoding...\n\n");            //인코딩
     printf("Encoded Result : ");
     encoding(str, TreeRoot);
     
-    printf("\ndecoding...\n\n");
+    printf("\ndecoding...\n\n");            //디코딩
     printf("Decoding Result :");
-    decoding
-
+    decoding(TreeRoot);
+    printf("\n");
     return 0;
 }
 
@@ -192,7 +192,7 @@ void Traversal(NODE* cur) //중위순회를 하면서
     Traversal(cur->left);
     if (cur->left == 0 && cur->right == 0)                  //리프노드이면
     {
-        cur->code = (char*)malloc(sizeof(char) * height);   //높이만큼 노드의 code를 동적할당
+        cur->code = (char*)malloc(sizeof(char) * height);   //높이만큼 노드의 code를 동적할당 (각 코드는 높이만큼의 0,1로 이루어짐)
         strcpy(cur->code, stack);                           //스택에 쌓인 문자열 카피
         printf("%c : %s\n", cur->alphabet, cur->code);
     }
@@ -224,11 +224,33 @@ void encoding(char str[], NODE* TreeRoot) {
 
 void printcode(char c, NODE* p) {
     if (p->left == NULL && p->right == NULL) {          //리프노드일때까지 재귀함수로 반복하여
-        strcat(b_str, p->code);                         //decoding을 위해 char 배열에 붙여넣기
-        if (c == p->alphabet)  printf("%s", p->code);   //찾으면 코드 출력
-        return;
+        if (c == p->alphabet) {     
+            printf("%s", p->code);  //찾으면 코드 출력
+            strcat(b_str, p->code); //decoding을 위해 char 배열에 붙여넣기
+            return;
+        }
     }
     if (p->left != NULL) printcode(c, p->left);
     if (p->right != NULL) printcode(c, p->right);
 }
 
+/*합치면서 생긴 노드들이 '\0'을 가지기 때문에
+  구조체 멤버 alphabet!='\0' 인 노드를 찾을때까지 
+  Binary String을 탐색하며 이동 후 그 노드의 alphabet 출력
+  다시 p는 루트노드부터 탐색을 시작해야 하므로 p=TreeRoot로 초기화*/
+void decoding(NODE* TreeRoot) {
+    int i;
+    NODE* p = TreeRoot;
+    for (int i = 0; i < strlen(b_str); i++) {
+        if (b_str[i] == '0') {                  
+            p = p->left;                        
+        }
+        else if (b_str[i] == '1') {
+            p = p->right;
+        }
+        if (p->alphabet != '\0') {
+            printf("%c", p->alphabet);
+            p = TreeRoot;
+        }
+    }
+}
