@@ -1,5 +1,4 @@
 ﻿  CanRobotLight.cpp
-<<<<<<< HEAD
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(34,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(37,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(48,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
@@ -28,49 +27,10 @@ D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobo
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(147,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(160,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(163,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(172,29): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(172,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(173,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(181,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(186,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(194,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
 D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(207,47): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
   Week12.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\Debug\Week12.exe
-=======
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(23,23): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(33,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(46,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(51,31): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(53,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(54,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(62,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(75,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(80,29): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(82,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(83,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(91,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(93,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(100,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(101,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(103,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(108,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(110,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(117,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(119,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(126,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(127,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(129,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(134,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(136,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(144,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(156,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(159,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(168,29): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(169,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(177,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(182,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(190,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(204,47): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(208,49): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
-C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\CanRobotLight.cpp(209,50): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
-  Week12.vcxproj -> C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Week12\Debug\Week12.exe
->>>>>>> 9a02b116dc2311139fe620b35760028ec64521f8
