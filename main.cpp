@@ -219,7 +219,7 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);    //디스플레이 GLUT_RGB모드
 	glutInitWindowSize(600, 480);                   //디스플레이 사이즈 800*1200
 	glutInitWindowPosition(10, 10);               //윈도우 위치 100*100
-	glutCreateWindow("Can Robot");                   //창 이름 Can Robot
+	glutCreateWindow("Color Study");                   //창 이름 Can Robot
 	MyInit();   //초기화
 	glutDisplayFunc(MyDisplay); //display 이벤트
 	glutReshapeFunc(MyReshape);  //창 크기가 변했을때 이벤트
