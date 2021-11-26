@@ -1,10 +1,24 @@
 ﻿  main.cpp
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(27,12): warning C4244: '인수': 'GLint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(31,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(41,29): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(42,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(49,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(82,14): warning C4244: '인수': 'GLint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(90,16): warning C4244: '인수': 'GLint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\main.cpp(101,47): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
-  Final.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Final\Debug\Final.exe
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(34,47): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(56,29): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(74,29): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(75,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(82,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(115,14): warning C4244: '인수': 'GLint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(123,16): warning C4244: '인수': 'GLint'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(137,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(138,23): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(140,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(141,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(143,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(144,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(146,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(147,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(153,22): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(158,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(159,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(196,34): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(201,35): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(206,33): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\main.cpp(209,35): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
+  Final.vcxproj -> C:\Users\iingy\Desktop\Project\컴그\Computer-Graphics-Final\Debug\Final.exe
