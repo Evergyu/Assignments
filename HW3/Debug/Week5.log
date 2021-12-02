@@ -1,0 +1,9 @@
+﻿  Timer_Callback(3-6).cpp
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Timer_Callback(3-6).cpp(20,21): warning C4244: '인수': 'GLdouble'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Timer_Callback(3-6).cpp(20,18): warning C4244: '인수': 'GLdouble'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Timer_Callback(3-6).cpp(20,15): warning C4244: '인수': 'GLdouble'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Timer_Callback(3-6).cpp(21,21): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Timer_Callback(3-6).cpp(22,20): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Timer_Callback(3-6).cpp(23,20): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Timer_Callback(3-6).cpp(24,21): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Week5.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week5\Debug\Week5.exe
