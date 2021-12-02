@@ -1,0 +1,36 @@
+﻿  CanRobotLight.cpp
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(34,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(37,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(48,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(53,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(55,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(56,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(64,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(77,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(82,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(84,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(85,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(93,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(95,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(103,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(104,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(106,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(111,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(113,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(120,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(122,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(129,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(130,13): warning C4244: '인수': 'int'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(132,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(137,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(139,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(147,25): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(160,26): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(163,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(172,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(173,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(181,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(186,27): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(194,24): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\CanRobotLight.cpp(207,47): warning C4305: '초기화 중': 'double'에서 'GLfloat'(으)로 잘립니다.
+  Week12.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week12\Debug\Week12.exe
