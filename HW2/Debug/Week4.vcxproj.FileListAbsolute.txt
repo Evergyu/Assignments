@@ -1,0 +1,3 @@
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week4\Debug\Week4.exe
+C:\Users\iingy\Desktop\Project\컴그\ComputerGraphics-Week4\Debug\Week4.exe
+D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\ComputerGraphics-Week4\Debug\Week4.exe
