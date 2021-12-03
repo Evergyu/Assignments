@@ -1,5 +1,0 @@
-﻿  Viewport Partition.cpp
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week10\Viewport Partition.cpp(30,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week10\Viewport Partition.cpp(41,28): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week10\Viewport Partition.cpp(75,31): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-  Week10.vcxproj -> D:\이인규\2021\2학기\컴퓨터 그래픽스\과제 or 실습\Week10\Debug\Week10.exe
