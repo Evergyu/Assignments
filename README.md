@@ -1,1 +1,1 @@
-# Data-Structure_Assignment
+# 자료구조 강의 과제입니다.
