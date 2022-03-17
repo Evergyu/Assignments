@@ -9,7 +9,7 @@ import android.widget.Toast;
 import android.net.Uri;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.ImageView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button button1;
     Button button2;
     RadioButton r_btn1,r_btn2;
-    RadioGroup radioGroup;
+    ImageView imageView;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,19 @@ public class MainActivity extends AppCompatActivity {
         
         r_btn1=(RadioButton) findViewById(R.id.rg_btn1);
         r_btn2=(RadioButton) findViewById(R.id.rg_btn2);
-        // 라디오버튼 하다말음
+        imageView=(ImageView)findViewById(R.id.imageView);
+        r_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageView.setImageResource(R.drawable.green);
+            }
+        });
+        r_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageView.setImageResource(R.drawable.red);
+            }
+        });
     }
 }
+
