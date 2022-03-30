@@ -1,6 +1,9 @@
 package com.example.solving4_4;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.*;
 import android.view.View;
@@ -50,11 +53,50 @@ public class MainActivity extends AppCompatActivity {
         Rgroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                Rbtn1.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View view){ Image.getResources().getDrawable(R.drawable.12)}
-                });
-
+                String result;
+                if(i==R.id.rBtn1){
+                    Image.setImageResource(R.drawable.android10);
+                }
+                else if(i==R.id.rBtn2){
+                    Image.setImageResource(R.drawable.android11);
+                }
+                else if(i==R.id.rBtn3){
+                    Image.setImageResource(R.drawable.android12);
+                }
+            }
+        });
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("정말로 종료하시겠습니까?");
+                builder.setTitle("종료 알림창")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int i) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int i) {
+                                dialog.cancel();
+            }
+        });
+                AlertDialog alert = builder.create();
+                alert.setTitle("종료 알림창");
+                alert.show();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch1.setChecked(false);
+                Rbtn1.setChecked(false);
+                Rbtn2.setChecked(false);
+                Rbtn3.setChecked(false);
+                Image.setImageBitmap(null);
             }
         });
     }
