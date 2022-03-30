@@ -50,14 +50,11 @@ public class MainActivity extends AppCompatActivity {
         Rgroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                String result;
-                if(checkId==R.id.rBtn1){
-                    Image.setImageResource();
-                }
-                else if(checkId==R.id.rBtn2){
+                Rbtn1.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view){ Image.getResources().getDrawable(R.drawable.12)}
+                });
 
-                }
-                else if(checkId==R.id.rBtn3)
             }
         });
     }
