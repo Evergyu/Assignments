@@ -1,42 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TabHost"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@android:id/tabhost"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TabWidget
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="512dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/cat"
+                android:layout_width="match_parent"
+                android:layout_height="583dp"
+                android:src="@drawable/cat"></ImageView>
+
+            <ImageView
+                android:id="@+id/dog"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:src="@drawable/dog"></ImageView>
+
+            <ImageView
+                android:id="@+id/horse"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:src="@drawable/horse"></ImageView>
+
+            <ImageView
+                android:id="@+id/rabbit"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:src="@drawable/rabbit"></ImageView>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@android:id/tabs">
-        </TabWidget>
-        <FrameLayout
+            android:layout_weight="1"
+            android:text="2018038083 이인규" />
+
+        <TabWidget
+            android:id="@android:id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/tabSong"
-                android:background="#f00000">
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/tabArtist"
-                android:background="#f0f000">
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/tabAlbum"
-                android:background="#f000ff">
-            </LinearLayout>
-        </FrameLayout>
+            android:layout_height="wrap_content"
+            android:background="#f0f000"></TabWidget>
     </LinearLayout>
 </TabHost>
