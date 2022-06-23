@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="13dp"
+        android:text="선택을 시작하겠습니까?"
+        app:layout_constraintBottom_toTopOf="@+id/ChkAgree"
+        app:layout_constraintEnd_toEndOf="@+id/ChkAgree"
+        app:layout_constraintStart_toEndOf="@+id/ChkAgree"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/ChkAgree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="시작점"
+        app:layout_constraintBottom_toTopOf="@+id/Text2"
+        app:layout_constraintStart_toStartOf="@+id/Text2"
+        app:layout_constraintTop_toBottomOf="@+id/Text1" />
+
+    <TextView
+        android:id="@+id/Text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="14dp"
+        android:text="좋아하는 애완동물은?"
+        app:layout_constraintBottom_toTopOf="@+id/Rgroup1"
+        app:layout_constraintStart_toStartOf="@+id/Rgroup1"
+        app:layout_constraintTop_toBottomOf="@+id/ChkAgree" />
+
+    <RadioGroup
+        android:id="@+id/Rgroup1"
+        android:layout_width="281dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="71dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/BtnOK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text2">
+
+        <RadioButton
+            android:id="@+id/RdoDog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="강아지" />
+
+        <RadioButton
+            android:id="@+id/RdoCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="고양이" />
+
+        <RadioButton
+            android:id="@+id/RdoRabbit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="토끼" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/BtnOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="35dp"
+        android:text="선택 완료"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/ImgPet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Rgroup1" />
+
+    <ImageView
+        android:id="@+id/ImgPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="53dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnOK"
+        app:srcCompat="@drawable/dog" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="33dp"
+        android:text="2018038083 이인규"
+        app:layout_constraintStart_toEndOf="@+id/Text1"
+        app:layout_constraintTop_toBottomOf="@+id/Text1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
