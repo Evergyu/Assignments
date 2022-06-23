@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<div id="map" style="width:800px; height: 500px"></div>
+
+<script>
+function myMap() {  
+  var mapCanvas = document.getElementById("map");
+  var myCenter = new google.maps.LatLng(36.6283, 127.4583);
+  var mapOptions = {
+  	center: myCenter, 
+    zoom: 5,
+	panControl: true,
+	zoomControl: true,
+	mapTypeControl: true,
+	scaleControl: true,
+	streetViewControl: true,
+	overviewMapControl: true,
+	rotateControl: true
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  
+  var marker = new google.maps.Marker({
+	position:myCenter,
+    animation:google.maps.Animation.BOUNCE,
+	icon: 'cbnu.png'	
+  });
+  marker.setMap(map);
+  
+    google.maps.event.addListener(marker,'click',function() {
+		var infowindow = new google.maps.InfoWindow({
+		  content:"Hello World!"
+		});
+	  infowindow.open(map,marker);
+	  });
+
+  
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+</body>
+</html>

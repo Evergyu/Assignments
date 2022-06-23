@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <style>
+            #div1{
+                border: 2px dotted black;
+                width: 200px;
+                height: 100px;
+            }
+        </style>
+        <script>
+            function OnMouseIn(n) {
+                n.style.border = "2px solid red";
+            }
+            function OnMouseOut(n) {
+                n.style.border = "";
+            }
+            function OnMouseDown(n) {
+                n.style.backgroundColor = "yellow";
+            }
+            function OnMouseUp(n) {
+                n.style.backgroundColor = "";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1" onmouseover="OnMouseIn(this)" onmouseout="OnMouseOut(this)" onmousedown="OnMouseDown(this)" onmouseup="OnMouseUp(this)">
+            <p>OnMouse Event</p>
+        </div>
+    </body>
+</html>
+

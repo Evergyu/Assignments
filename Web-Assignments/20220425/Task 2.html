@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+    <h1>The Document Object</h1>
+    <h2>DOM innerHTML Property</h2>
+	
+    <p id="original">JavaScript DOM is fun to learn</p>
+ 
+    <button onclick="change()">Try it</button>
+    <p id="new"></p>
+      
+    <script>
+    function change() {
+        var x = document.getElementById("original").innerHTML;
+        document.getElementById("new").innerHTML = "<h1>" + x + "</h1>";
+        document.getElementById("new").style.color = "green";
+    }
+    </script>
+</body>
+ 
+</html>

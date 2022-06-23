@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <table border="1" cellpadding="5" cellspacing="0">
+<tr>
+<th></th>
+<th>Water</th>
+<th>Air</th>
+<th>Fire</th>
+<th>Earth</th>
+</tr>
+<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)">
+<td>Spring thunderclouds</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)">
+<td>Roasting chestnuts</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)">
+<td>Winter snowbanks</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr onmouseover="ChangeBackgroundColor(this)" onmouseout="RestoreBackgroundColor(this)">
+<td>Ice cream on a hot summer day</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+// Specify the normal table row background color
+//   and the background color for when the mouse 
+//   hovers over the table row.
+
+var TableBackgroundNormalColor = "#ffffff";
+var TableBackgroundMouseoverColor = "#9999ff";
+
+// These two functions need no customization.
+function ChangeBackgroundColor(row) { row.style.backgroundColor = TableBackgroundMouseoverColor; }
+function RestoreBackgroundColor(row) { row.style.backgroundColor = TableBackgroundNormalColor; }
+</script>
+
+
+</html>

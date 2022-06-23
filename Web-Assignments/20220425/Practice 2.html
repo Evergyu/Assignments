@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <script>
+            function Show() {
+                var output = document.getElementsByClassName("list_class")[2].innerHTML;
+                alert(output);
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <script>
+                for(var i = 1; i < 6; i++){
+                    document.write('<li class="list_class">List item with class ' + i + '</li>');
+                }
+            </script>
+        </ul>
+        <input type="button" value="Click" onclick="Show();" />
+    </body>
+</html>
+

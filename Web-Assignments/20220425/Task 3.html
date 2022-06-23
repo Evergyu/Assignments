@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Function of JavaScript</title>
+
+        <script>
+            function calc() {
+                var x = document.getElementById("received_x").value;
+                var y = document.getElementById("received_y").value;
+                var sum = parseInt(x) + parseInt(y);
+
+                document.getElementById("result").value = sum;
+            }
+        </script>
+    </head>
+
+    <body>
+        <h3>Simple Calculator</h3>
+        <form>
+            First integer: <input type="text" id="received_x" /><br />
+            Second integer: <input type="text" id="received_y" /><br />
+            Total: <input type="text" id="result" /><br />
+
+            <input type="button" value=Calculate onclick="calc();" />
+        </form>
+    </body>
+</html>
+

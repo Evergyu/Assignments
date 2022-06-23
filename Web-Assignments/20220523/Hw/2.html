@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .row {
+            margin: 50px;
+        }
+
+        #abc {
+            background-color: orange;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .glyphicon {
+            color: #f4511e;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Your Project</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#abc">1</a></li>
+                <li><a href="#2">2</a></li>
+                <li><a href="#price">3</a></li>
+                </ul>
+          </div>
+        </div>
+      </nav>
+    <div id="abc" class="container-fluid">
+        <h1>Your Project Name</h1>
+        <p>Leave your email if you are interested in our project</p>
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Enter Address" name="email">
+                <button type="submit" class="btn btn-danger">Subscribe</button>
+            </div>
+        </form>
+    </div>
+    <div class="text-center">
+        <h1>Functionalities</h1>
+        <p>What we offer</p>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <span class="glyphicon glyphicon-wrench"></span>
+            <h2>DEBUGGING</h2>
+            <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="glyphicon glyphicon-wrench"></span>
+            <h2>DEBUGGING</h2>
+            <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+        <div class="col-sm-4 text-center">
+            <span class="glyphicon glyphicon-wrench"></span>
+            <h2>DEBUGGING</h2>
+            <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+    </div>
+    <div id="2" class="row text-center">
+        <h1>Our Team</h1>
+        <p>Introducing our team with a lot of passion</p>
+
+        <div class="col-sm-4">
+            <div class="text-center">
+                <p><strong>A</strong></p>
+                <img src="./bird.jpg" class="img-circle" data-toggle="collapse" data-target="#demo1">
+                <div id="demo1" class="collapse">
+                    가나다라마바사
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="text-center">
+                <p><strong>B</strong></p>
+                <img src="./bird.jpg" class="img-circle" data-toggle="collapse" data-target="#demo2">
+                <div id="demo2" class="collapse">
+                    가나다라마바사
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="text-center">
+                <p><strong>C</strong></p>
+                <img src="./bird.jpg" class="img-circle" data-toggle="collapse" data-target="#demo3">
+                <div id="demo3" class="collapse">
+                    가나다라마바사
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="price" class="container-fluid text-center bg-4">
+        <h3>Our Price</h3>
+        <p>We offer flexible pricing for our clients</p>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

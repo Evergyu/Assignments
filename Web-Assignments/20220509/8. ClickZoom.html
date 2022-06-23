@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<div id="map" style="width:800px; height: 500px"></div>
+
+<script>
+function myMap() {  
+  var mapCanvas = document.getElementById("map");
+  var myCenter = new google.maps.LatLng(36.6283, 127.4583);
+  var mapOptions = {
+  	center: myCenter, 
+    zoom: 5
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  
+  var marker = new google.maps.Marker({
+	position:myCenter,
+    animation:google.maps.Animation.BOUNCE,
+	icon: 'cbnu.png'	
+  });
+  marker.setMap(map);
+  
+  var myUniversity = new google.maps.Circle({
+    center: myCenter,
+    radius: 500,
+    strokeColor: "#0000FF",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#0000FF",
+    fillOpacity: 0.4
+  });
+  myUniversity.setMap(map);
+  
+  google.maps.event.addListener(marker,'click',function() {
+    map.setZoom(15);
+    map.setCenter(marker.getPosition());
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+</body>
+</html>

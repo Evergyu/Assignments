@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ul {
+                text-align: center;
+                border : 1px solid red;
+                padding: 10px;
+            }
+            ul li {
+                display: inline;
+                padding: 20px;
+            }
+            ul li a {
+                text-decoration: none;
+            }
+            ul li a:hover {
+                padding: 10px;
+                background-color: blue;
+                color: white;
+            }
+            img {
+                float: left;
+            }
+            #up_button {
+                width: 50px;
+                height: 25px;
+                background-color: skyblue;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                text-align: center;
+            }
+
+            /*semantic element*/
+            header {
+                text-align: center;
+            }
+            nav.leftnav {
+                width: 20%;
+                float: left;
+            }
+            nav.rightnav {
+                width: 80%;
+                float: right;
+            }
+            content {
+                text-align: center;
+            }
+            .content1 {
+                width: 100%;
+                float: left;
+                background-color: beige;
+            }
+            .content2 {
+                width: 100%;
+                float: left;
+                background-color: greenyellow;
+            }
+            .content3 {
+                width: 100%;
+                float: left;
+                background-color: steelblue;
+            }
+            footer {
+                background-color: orange;
+                width: 100%;
+                height: 50px;
+                clear: both;
+                text-align: center;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="home">
+            <h1>My Homepage</h1>
+        </header>
+
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#introduce">INTRODUCE</a></li>
+            <li><a href="#content">CONTENT</a></li>
+            <li><a href="#schedule">SCHEDULE</a></li>
+            <li><a href="#more">MORE</a></li>
+        </ul>
+
+        <nav class="leftnav">
+            <div>
+                <img src="img1.png" width="150" height="200">
+            </div>
+        </nav>
+
+        <nav class="rightnav" id="introduce">
+            <h2>Introduce</h2>
+            <p>Hello! My name is ~~~~</p>
+            <p>My major is ~~~~</p>
+            <p>My number is ~~~~</p>
+            <p>My hobby is ~~~~</p>
+        </nav>
+
+        <content>
+            <div class="content1" id="content">
+                <h1>content</h1>
+                <h1>content</h1>
+                <h1>content</h1>
+                <h1>content</h1>
+                <h1>content</h1>
+                <h1>content</h1>
+            </div>
+
+            <div class="content2" id="schedule">
+                <h1>schedule</h1>
+                <h1>schedule</h1>
+                <h1>schedule</h1>
+                <h1>schedule</h1>
+                <h1>schedule</h1>
+                <h1>schedule</h1>
+            </div>
+
+            <div class="content3" id="more">
+                <h1>more</h1>
+                <h1>more</h1>
+                <h1>more</h1>
+                <h1>more</h1>
+                <h1>more</h1>
+                <h1>more</h1>
+            </div>
+        </content>
+        
+		<div id="up_button"><a href="#home">UP</a></div>
+
+        <footer>
+            <p>2019-01 WebProgramming</p>
+        </footer>
+    </body>
+</html>
+

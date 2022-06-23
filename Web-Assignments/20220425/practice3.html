@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Manipulation</title>
+
+        <script>
+            function login() {
+                var id = document.getElementById("received_id").value;
+                var pw = document.getElementById("received_pw").value;
+				
+				alert("ID : " + id + " PW :" + pw);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h3>Login</h3>
+        <form>
+            ID: <input type="text" id="received_id" /><br />
+            PW: <input type="password" id="received_pw" /><br />
+
+            <input type="button" value=Login onclick="login();" />
+        </form>
+    </body>
+</html>
+

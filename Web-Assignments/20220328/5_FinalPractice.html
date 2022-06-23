@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Final Practice</title>
+    <link rel="stylesheet" href="5_Final.css">
+    <style>
+        #title {
+            font-style: oblique;
+            text-emphasis-color: red;
+        }
+
+        #Wellness {
+            background-color: #FFFFBF;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">My Homepage</h1>
+    <center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Cza7v38JLpc" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </center>
+    <div id="profile" style="border:3px solid black;">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.5spPOtF-x3MwFRaKwCnQ8QHaHa%26pid%3DApi&f=1"
+            width="30" height="30" alt="papago">
+        My favorite <strong>emoticon</strong>.</img>
+        <div id="profile">
+            <h2>Try to type your profile</h2>
+            <div>
+                <label>Name :</label>
+                <input type="text" autofocus><br>
+                <label>Phone :</label>
+                <input type="text" placeholder="01012341234"><br>
+                <label>Major :</label>
+                <input type="text" value="소프트웨어" readonly>
+            </div>
+            <div>
+                Male/Female :
+                <input type="radio" name="male">
+                <label>Male</label>
+                <input type="radio" name="male">
+                <label>Female</label>
+            </div>
+        </div>
+    </div>
+    <div id="ProgrammingLanguage">
+        <h2>Programming Languages That I know</h2>
+        <ul style="list-style-type:square">
+            <li>C language</li>
+            <li>C++ language</li>
+            <li>Python language</li>
+            <li>JAVA language</li>
+            <li>JavaScript language (library <a href="https://ko.reactjs.org/">React.js</a>)</li>
+            <li>Wellness of Programming Languages <a href="#Wellness">Here!</a></li>
+        </ul>
+    </div>
+    <div id="schedule">
+        <h2>Schedule</h2>
+        <table style="background-color: #FFFFBF;" border="1">
+            <caption>Schedule During Weekdays</caption>
+            <tr>
+                <td></td>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+            <tr>
+                <td>Wake up time</td>
+                <td colspan="2">8:30</td>
+                <td>12:00</td>
+                <td colspan="2">8:30</td>
+            </tr>
+            <tr>
+                <td>Sleep time</td>
+                <th colspan="5">01:00</th>
+            </tr>
+        </table>
+    </div>
+    <div id="Well">
+        <h2>Wellness of Programming Language</h2>
+        <table id="Wellness" border="1">
+            <tr>
+                <th>C</th>
+                <td>☆</td>
+            </tr>
+            <tr>
+                <th>C++</th>
+                <td rowspan="3">☆☆</td>
+            </tr>
+            <tr>
+                <th>Python</th>
+            </tr>
+            <tr>
+                <th>JAVA</th>
+            </tr>
+            <tr>
+                <th>JavaScript</th>
+                <td>☆</td>
+            </tr>
+        </table>
+    </div>
+    <div id="Evaluation">
+        <h2>Evaluation</h2>
+        <input type="radio" name="Evaluation" checked>
+        <label>Excellent</label>
+        <input type="radio" name="Evaluation">
+        <label>Good</label>
+        <input type="radio" name="Evaluation">
+        <label>Soso</label>
+        <input type="radio" name="Evaluation">
+        <label>Bad</label>
+        <input type="radio" name="Evaluation">
+        <label>Terrible</label>
+    </div>
+</body>
+
+</html>

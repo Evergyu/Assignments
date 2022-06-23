@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <script>
+            function Change() {
+                document.getElementById("target4").style.backgroundColor = "yellow";
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <script>
+                    for(var i = 1; i < 5; i++) {
+                        document.write('<td id="target'+ i +'">td'+ i +'</td>');
+                    }
+                </script>
+            </tr>
+            <tr>
+                <script>
+                    for(var i = 5; i < 9; i++) {
+                        document.write('<td id="target'+ i +'">td'+ i +'</td>');
+                    }
+                </script>
+            </tr>
+        </table>
+        <input type="button" value="Change" onclick="Change();" />
+    </body>
+</html>

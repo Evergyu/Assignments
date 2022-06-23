@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>    
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <script>
+        var x="10";
+        function f(){
+            var x="4";
+            alert(this.x);
+            function g(){alert(x);}
+            g();
+        }
+        f();
+    </script>
+    <h1>Jeader Here</h1>
+</body>
+
+</html>

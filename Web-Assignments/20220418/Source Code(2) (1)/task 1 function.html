@@ -1,0 +1,46 @@
+	<h2>JavaScript function</h2>
+  
+  <script>
+	function squareNumber(num) {
+		var squaredNumber = num * num;
+		document.write('The result of squaring the number ' + num + ' is ' + squaredNumber + "<br>");
+		return squaredNumber;
+	}
+
+	squareNumber(3);
+
+	function halfOf(num) {
+		var half = num / 2;
+		document.write('Half of ' + num + ' is ' +  half  + "<br>");
+		return half;
+	}
+
+	halfOf(5);
+
+	function percentOf(num1, num2) {
+		var percent = (num1/num2) * 100;
+		document.write(num1 + ' is ' + percent + '% of ' + num2  + "<br>");
+		return percent;
+	}
+
+	percentOf(5, 10);
+
+	function areaOfCircle(radius) {
+		var area = Math.PI * squareNumber(radius);
+		document.write('The area of circle with radius ' + radius + ' is ' + area  + "<br>");
+		return area;
+	}
+
+	areaOfCircle(2);
+
+	function doCrazyStuff(num) {	
+		document.write("<br>" + "Do crazy stuff" + "<br>");
+		var half    = halfOf(num);
+		var squared = squareNumber(half);
+		var area    = areaOfCircle(squared);
+		var result  = percentOf(squared, area);
+	}
+
+	doCrazyStuff(5);
+
+  </script>

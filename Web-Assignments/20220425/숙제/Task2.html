@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>The Document Object</h1>
+    <h2>DOM innerHTML Property</h2>
+    <p id="p">Javascript DOM is fun to learn</p>
+    <input type="button" value="Try it" onclick="func1()">
+    <p id="under"></p>
+    <script>
+        function func1() {
+            const a = document.getElementById("p").innerHTML;
+            document.getElementById("under").innerHTML = "<h1>" + a + "</h1>";
+            document.getElementById("under").style.color = "green";
+        }
+    </script>
+</body>
+
+</html>

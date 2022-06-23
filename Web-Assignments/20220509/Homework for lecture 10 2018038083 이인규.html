@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div id="map" style="width:600px; height: 500px"></div>
+
+  <script>
+    function myMap() {
+      var mapCanvas = document.getElementById("map");
+      var myCenter = new google.maps.LatLng(36.6283, 127.4583);
+      var P1 = new google.maps.LatLng(36.632492, 127.45589);
+      var P2 = new google.maps.LatLng(36.632602, 127.452969);
+      var P3 = new google.maps.LatLng(36.629468, 127.450040);
+      var P4 = new google.maps.LatLng(36.62586, 127.452978);
+      var P5 = new google.maps.LatLng(36.622576, 127.456518);
+      var P6 = new google.maps.LatLng(36.622586, 127.459218);
+      var P7 = new google.maps.LatLng(36.620904, 127.459955);
+      var P8 = new google.maps.LatLng(36.624386, 127.463718);
+      var P9 = new google.maps.LatLng(36.62856, 127.4626378);
+      var P10 = new google.maps.LatLng(36.63206, 127.458878);
+
+
+      var mapOptions = {
+        center: myCenter,
+        zoom: 15
+      };
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myCenter,
+        animation: google.maps.Animation.BOUNCE,
+        icon: 'cbnu.png'
+      });
+      marker.setMap(map);
+
+
+      var myPath = new google.maps.Polygon({
+        path: [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10],
+        strokeColor: "#0000FF",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#0000FF",
+        fillOpacity: 0.4
+      });
+      myPath.setMap(map);
+
+      path = [
+        new google.maps.LatLng(36.624186, 127.461718), //충북대병원
+        new google.maps.LatLng(36.624086, 127.459218), //양진재
+        new google.maps.LatLng(36.624136, 127.458018), //5공학관
+        new google.maps.LatLng(36.624386, 127.458518), //토목공학관
+        new google.maps.LatLng(36.623476, 127.456518), //수의과대학
+        new google.maps.LatLng(36.625676, 127.455618), //자연과학대학
+        new google.maps.LatLng(36.625676, 127.454518), //전자정보대학
+        new google.maps.LatLng(36.626376, 127.455568), //전산정보원
+        new google.maps.LatLng(36.627776, 127.455378), //박물관
+        new google.maps.LatLng(36.62746, 127.452378), //양성재
+        new google.maps.LatLng(36.62856, 127.457378), //중앙도서관
+        new google.maps.LatLng(36.62886, 127.456278), //솔못
+        new google.maps.LatLng(36.62956, 127.457378), //사회과학대학
+        new google.maps.LatLng(36.62956, 127.452978), //농생대
+        new google.maps.LatLng(36.63176, 127.453778), //법학전문대
+        new google.maps.LatLng(36.63106, 127.456508), //인문사회관
+
+      ]
+
+      let info = [
+        '충북대학교 병원',
+        '양진재',
+        '제 5공학관',
+        '토목공학관',
+        '수의과대학',
+        '자연과학대학',
+        '전자정보대학 3관',
+        '전산정보원',
+        '박물관',
+        '양성재',
+        '중앙도서관',
+        '솔못',
+        '사회과학대학',
+        '농업생명환경대학',
+        '법학전문대학원',
+        '인문사회관',
+      ]
+
+      for (i = 0; i < path.length; i++) {
+        markerA = new google.maps.Marker({
+          position: path[i],
+          map: map
+        });
+        markerA.setMap(map);
+        var infowindow = new google.maps.InfoWindow({
+          content: info[i]
+        });
+        infowindow.open(map, markerA);
+      }
+
+      heatMapData = [new google.maps.LatLng(36.625676, 127.454518)] //전자정보대학
+      var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: heatMapData,
+        radius: 10
+      });
+      heatmap.setMap(map);
+    }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG8r6dEEaxjluNTsspnX6FkH7fCQ3ca4c
+&callback=myMap"></script>
+
+
+</body>
+
+</html>

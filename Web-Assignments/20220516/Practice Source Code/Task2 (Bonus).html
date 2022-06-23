@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+.image-frame{
+	float: left;
+    position: relative;
+	padding: 0;
+}
+
+.image-caption{
+	display: none;	
+	width: 250px;	
+	position: absolute;
+	bottom: 0px;
+	background-color: black;
+	color: white;
+	opacity: 0.8;
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $(".image-frame").mouseenter(function(){
+    $(".image-caption").slideDown("slow");
+  });
+  $(".image-frame").mouseleave(function(){
+    $(".image-caption").slideUp("slow");
+  });
+});
+
+</script>
+
+</head>
+<body>
+
+<h1>Welcome to my personal website</h1>
+
+<p>Click on the image below to see about me.</p>
+
+<div class="image-frame">
+	<img src="img_avatar.png">
+	<div class="image-caption">
+		<p>My name is Aziz. I am a professor of software. 
+		I teach Web and Database courses.</p>
+	</div>
+</div>
+
+</body>
+</html>

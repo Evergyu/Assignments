@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>task5</title>
+        <script>
+            var i = 0;
+            var j;
+            var arr = new Array();
+
+            function func1() {
+                arr[i] = document.getElementById("number").value;
+                i++;
+            }
+
+            function func2() {
+                for (j = 0; j < arr.length; j++) {
+                    document.write(arr[j] + "<br>");
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        Input : <input id="number" />
+        <input type="button" value=Stack onclick="func1();" /><br /><br />
+        <input type="button" value=Show onclick="func2();" />
+    </body>
+</html>
+

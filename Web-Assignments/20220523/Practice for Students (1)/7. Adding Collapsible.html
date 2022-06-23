@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Final Project Website</title>
+	<meta charset="utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+		.bg-1 {
+			background-color: #f4511e;
+			color: #ffffff;
+			padding-top: 70px;
+			padding-bottom: 70px;			
+		}
+		.bg-2 {
+			padding-top: 70px;
+			padding-bottom: 70px;			
+		}	
+		.bg-3{
+			background-color: #f6f6f6;
+			padding-top: 70px;
+			padding-bottom: 70px;
+		}
+		.icon {
+			color: #f4511e;
+			font-size: 50px;
+			margin: 25px 0;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container-fluid text-center bg-1">
+	<h1>Your Project Name</h1>
+	<p>Leave your email if you are interested in our project</p>
+	<form class="form-inline">
+		<div class="form-group">
+			<input type="email" class="form-control" placeholder="Email Address" required>
+		</div>
+		<button type="button" class="btn btn-danger">Subscribe</button>
+  </form>
+</div>
+<div class="container-fluid text-center bg-2">
+	<h3>Functionalities</h3>
+	<p>What we offer</p>
+	<div class="row">
+		<div class="col-sm-4">			
+			<span class="glyphicon glyphicon-off icon"></span>
+			<h4>AVAILABILITY</h4>
+			<p>Lorem ipsum dolor sit amet..</p>
+		</div>
+		<div class="col-sm-4">
+			<span class="glyphicon glyphicon-wrench icon"></span>
+			<h4>DEBUGGING</h4>
+			<p>Lorem ipsum dolor sit amet..</p>
+		</div>
+		<div class="col-sm-4">
+			<span class="glyphicon glyphicon-lock icon"></span>
+			<h4>SECURITY</h4>
+			<p>Lorem ipsum dolor sit amet..</p>
+		</div>
+	</div>
+</div>
+<div class="container-fluid text-center bg-3">
+	<h3>Our Team</h3>
+	<p>Introducing our team with a lot of passion</p>
+	<div class="row">
+		<div class="col-sm-4">
+			<p><b>Aziz Nasridinov</b></p>
+			<img src="teammember.jpg" class = "img-circle" width="255" height="255" data-toggle="collapse" data-target="#member1">
+			<p></p>
+			<div id="member1" class="collapse">Aziz is responsible for providing availablity of the services. He developed the software using JavaScript.</div>
+		</div>
+		<div class="col-sm-4">
+			<p><b>Jeong-Hun Kim</b></p>
+			<img src="teammember.jpg" class = "img-circle" width="255" height="255" data-toggle="collapse" data-target="#member2">
+			<p></p>
+			<div id="member2" class="collapse">Jeong-Hun is responsible for debugging. He created a software to automatically refactor the code.</div>
+		</div>
+		<div class="col-sm-4">
+			<p><b>Jong-Hyuk Choi</b></p>
+			<img src="teammember.jpg" class = "img-circle" width="255" height="255" data-toggle="collapse" data-target="#member3">
+			<p></p>
+			<div id="member3" class="collapse">Jong-Hyuk is responsible for providing security to our project. He is an expert in the field of computer security.</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

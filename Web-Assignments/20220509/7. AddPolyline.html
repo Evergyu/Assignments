@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<div id="map" style="width:800px; height: 500px"></div>
+
+<script>
+function myMap() {  
+  var mapCanvas = document.getElementById("map");
+  var myCenter = new google.maps.LatLng(36.6283, 127.4583);
+  var Osong = new google.maps.LatLng(36.6205, 127.3274);
+  var Seoul = new google.maps.LatLng(37.5464, 126.9648);
+  var mapOptions = {
+  	center: myCenter, 
+    zoom: 8
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  
+  var marker = new google.maps.Marker({
+	position:myCenter,
+    animation:google.maps.Animation.BOUNCE,
+	icon: 'cbnu.png'	
+  });
+  marker.setMap(map);
+  
+  var myPath = new google.maps.Polyline({
+    path: [myCenter, Osong, Seoul],
+    strokeColor: "#0000FF",
+    strokeOpacity: 0.8,
+    strokeWeight: 2
+  });
+  myPath.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+</body>
+</html>

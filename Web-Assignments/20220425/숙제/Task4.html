@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+   <input type="button" value="Change" onclick="func1()"><br>
+   <img src="./test1.jpg">
+   <img src="./test2.jpg">
+   <img class="ForChange" src="./test3.jpg">
+   <img class="ForChange" src="./test4.jpg">
+
+   <script>
+       function func1(){
+           var list=document.getElementsByClassName("ForChange");
+           for(var i=0;i<list.length;i++){
+               list[i].src="./test5.jpg";
+           }
+       }
+   </script>
+</body>
+</html>

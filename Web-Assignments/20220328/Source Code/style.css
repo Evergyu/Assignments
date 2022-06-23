@@ -1,0 +1,69 @@
+/* spacing */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+
+th, td {
+  padding: 20px;
+}
+
+/* typography */
+
+html {
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;  
+}
+
+thead th, tfoot th {
+  font-family: 'Rock Salt', cursive;  
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+/* graphics */
+
+thead, tfoot {
+  background: url(leopardskin.jpg);
+  color: white;
+}
+
+thead th, tfoot th, tfoot td {
+  border: 3px solid purple;
+  text-shadow: 1px 1px 1px black;
+  font-size: 24px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ff33cc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e495e4;
+}
+
+tbody tr:hover {
+   background-color: hotpink;	
+}
+
+caption {
+  font-family: 'Rock Salt', cursive;
+  padding: 20px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #666;
+  text-align: right;
+  font-size: 20px;
+}
+
+
+
+
+

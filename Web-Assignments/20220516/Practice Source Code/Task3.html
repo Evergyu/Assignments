@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="jquery.cycle2.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+	var toAdd = $("#inputField").val();
+    $("ol").append("<li>" + toAdd + "</li>");
+  });
+});
+</script>
+</head>
+<body>
+
+<h1>This is To Do list</h1>
+
+<p>Type in your tasks and press add button</p>
+
+<input type="text" id="inputField">
+
+<button>Add</button>
+
+<ol>
+
+</ol>
+
+</body>
+</html>

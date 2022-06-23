@@ -1,0 +1,39 @@
+#title {
+    background-color: #ffdfb3;
+    text-align: center;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+#profile{
+    background-color: #ffdfb3;
+    margin-bottom : 5px;
+}
+
+body{
+    background-color: #FFFFBF;
+}
+
+#ProgrammingLanguage{
+    background-color: #ffdfb3;
+    border : 2px black solid;
+    margin-top: 5px;
+}
+
+#schedule{
+    background-color: #ffdfb3;
+    margin-top: 5px;
+    border: 2px black solid;
+
+}
+
+#Evaluation{
+    background-color: #ffdfb3;
+    margin-top: 5px;
+    border: 2px black solid;
+}
+
+#Well{
+    background-color: #ffdfb3;
+    margin-top: 5px;
+    border: 2px black solid;
+}

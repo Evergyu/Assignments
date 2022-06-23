@@ -1,0 +1,7 @@
+/* spacing */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}

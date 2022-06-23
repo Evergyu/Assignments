@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+
+    First integer : <input id="1" type="text"><br>
+    Second integer : <input id="2" type="text"><br>
+    Total : <input id="total" type="text"><br>
+    <input type="button" value="Calculate" onclick="func1()">
+    
+    <script>
+        function func1(){
+            var x=document.getElementById("1").value;
+            var y=document.getElementById("2").value;
+            document.getElementById("total").value=parseInt(x)+parseInt(y);
+        }
+    </script>
+</body>
+</html>
